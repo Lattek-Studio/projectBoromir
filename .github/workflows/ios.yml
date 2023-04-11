@@ -1,0 +1,45 @@
+name: IOS
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./my-app
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - run: mkdir iosfinal
+    - run: ls
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - run: npm install
+    - run: npx cap sync
+    - name: Pod install
+      working-directory: ./my-app/ios/App
+      run: pod install
+    - name: Build
+      uses: sersoft-gmbh/xcodebuild-action@v2
+      with:
+        workspace: ./my-app/ios/App/App.xcworkspace
+        scheme: App
+        destination: 'platform=iOS Simulator,name=iPhone 11,OS=16.2'
+        result-bundle-path: iosfinal
+        action: build
+    - run: ls
+    - name: show all files
+      run: ls -R
+    - name: Commit files
+      run: |
+        git config --local user.email "dasidasi86@gmail.com"
+        git config --local user.name "monsieurlazar"
+        git add -AN
+        git commit -a -m "Add changes"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: token
+        branch: main
