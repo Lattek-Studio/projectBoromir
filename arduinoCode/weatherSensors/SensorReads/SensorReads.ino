@@ -20,7 +20,7 @@ BME280 myBME280;
 
 #define API_KEY "AIzaSyAQGxZdMZAZaCtUIZ8iTPLlrE8jbfR73e4"
 
-#define USER_EMAIL "test@lazar.lol"
+#define USER_EMAIL "lazar@lazar.lol"
 #define USER_PASSWORD "lazaresmecher"
 
 #define DATABASE_URL "sensors-82505-default-rtdb.europe-west1.firebasedatabase.app"
