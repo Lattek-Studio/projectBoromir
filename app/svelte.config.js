@@ -15,8 +15,7 @@ const config = {
 		alias: {
 			$db: './src/lib/db',
 			$ui: './src/lib/ui',
-			$auth: './src/lib/utils/auth',
-			$google: './src/lib/utils/google',
+			$stores: './src/lib/stores',
 		}
 	}
 };
