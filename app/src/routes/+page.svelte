@@ -1,21 +1,18 @@
 <script>
 	import { Tab } from '$ui'
 	import { authStore } from '$lib/stores/auth'
+	import { dbStore } from '$lib/stores/db'
 	let uid;
 	authStore.subscribe((curr) => {
 		console.log('CURR', curr);
 		uid = curr?.currentUser?.uid;
 	});
-	import { db } from '$lib/firebase'
-	import { ref, onValue } from "firebase/database";
-	const dataRef = ref(db, 'data')
-
-	// Attach an asynchronous callback to read the data at our posts reference
 	let data
-
-	onValue(dataRef, (snapshot) => {
-	data = snapshot.val();
+	dbStore.subscribe((curr) => {
+		console.log('CURR', curr);
+		data = curr;
 	});
+	
 </script>
 
 <svelte:head>
@@ -30,7 +27,10 @@
 	<p>...but it's not there yet.</p>
 
 	<p>Your user id is <span>{uid}</span></p>
-	<p>The CO2 emission of the world is <span>{data?.CO2}</span></p>
+	//loop through all keeys of data
+	{#each Object.keys(data) as key}
+		<p>The <span>{key}</span> emission of the world is <span>{data[key]}</span></p>
+	{/each}
 	<Tab />
 </section>
 
