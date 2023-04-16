@@ -32,6 +32,8 @@ if (!getApps().length) {
 }
 
 export const auth = getAuth(firebaseApp)
+
+export const db = getDatabase(firebaseApp)
 //check if is browser
 // if (typeof window !== 'undefined') {
 //     const analytics = getAnalytics(app);

@@ -6,6 +6,16 @@
 		console.log('CURR', curr);
 		uid = curr?.currentUser?.uid;
 	});
+	import { db } from '$lib/firebase'
+	import { ref, onValue } from "firebase/database";
+	const dataRef = ref(db, 'data')
+
+	// Attach an asynchronous callback to read the data at our posts reference
+	let data
+
+	onValue(dataRef, (snapshot) => {
+	data = snapshot.val();
+	});
 </script>
 
 <svelte:head>
@@ -20,6 +30,7 @@
 	<p>...but it's not there yet.</p>
 
 	<p>Your user id is <span>{uid}</span></p>
+	<p>The CO2 emission of the world is <span>{data?.CO2}</span></p>
 	<Tab />
 </section>
 
