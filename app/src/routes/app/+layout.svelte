@@ -1,36 +1,36 @@
 <script>
     import { page } from '$app/stores'
-
+    import { goto } from '$app/navigation';
     let path;
     $: path = $page.url.pathname;
 </script>
 <nav>
     <div class="nav">
-        <div class="{path=='/app'?'active':''} title">
+        <div class="{path=='/app'?'active':''} title" on:click={()=>goto("/app")}>
             <img src="/favicon.png" />
             <a href="/app">Dust</a>
         </div>
-        <div class="{path=='/app/dashboard'?'active':''} item">
+        <div class="{path=='/app/dashboard'?'active':''} item" on:click={()=>goto("/app/dashboard")}>
             <img src="/dashboard.png" />
             <a href="/app/dashboard">Dashboard</a>
         </div>
-        <div class="{path=='/app/statistics'?'active':''} item">
+        <div class="{path=='/app/statistics'?'active':''} item" on:click={()=>goto("/app/statistics")}>
             <img src="/statistics.png" />
             <a href="/app/statistics">Statistics</a>
         </div>
-        <div class="{path=='/app/performance'?'active':''} item">
+        <div class="{path=='/app/performance'?'active':''} item" on:click={()=>goto("/app/performance")}>
             <img src="/performance.png" />
             <a href="/app/performance">Performance</a>
         </div>
-        <div class="{path=='/app/settings'?'active':''} item">
+        <div class="{path=='/app/settings'?'active':''} item" on:click={()=>goto("/app/settings")}>
             <img src="/settings.png" />
             <a href="/app/settings">Settings</a>
         </div>
     </div>
     <div class="app">
         <div class="bar">
-            <img class="settings" src="/settings.png" />
-            <div class="{path=='/app'?'active':''} title">
+            <img class="settings" src="/settings.png"  on:click={()=>goto("/app/settings")}/>
+            <div class="{path=='/app'?'active':''} title" on:click={()=>goto("/app")}>
                 <img src="/favicon.png" />
                 <a href="/app">Dust</a>
             </div>
