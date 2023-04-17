@@ -32,6 +32,7 @@
 		<p>The <span>{key}</span> emission of the world is <span>{data[key]}</span></p>
 	{/each}
 	<Tab />
+	<a href="/app">Go to app</a>
 </section>
 
 <style>
