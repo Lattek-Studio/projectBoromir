@@ -10,31 +10,38 @@
             <img src="/favicon.png" />
             <a href="/app">Dust</a>
         </div>
-        <div class="{path=='/app/dashboard'?'active':''}">
+        <div class="{path=='/app/dashboard'?'active':''} item">
             <img src="/dashboard.png" />
             <a href="/app/dashboard">Dashboard</a>
         </div>
-        <div class="{path=='/app/statistics'?'active':''}">
+        <div class="{path=='/app/statistics'?'active':''} item">
             <img src="/statistics.png" />
             <a href="/app/statistics">Statistics</a>
         </div>
-        <div class="{path=='/app/performance'?'active':''}">
+        <div class="{path=='/app/performance'?'active':''} item">
             <img src="/performance.png" />
             <a href="/app/performance">Performance</a>
         </div>
-        <div class="{path=='/app/settings'?'active':''}">
+        <div class="{path=='/app/settings'?'active':''} item">
             <img src="/settings.png" />
             <a href="/app/settings">Settings</a>
         </div>
     </div>
     <div class="app">
-        <slot />
+        <div class="bar">
+            <img class="settings" src="/settings.png" />
+            <div class="{path=='/app'?'active':''} title">
+                <img src="/favicon.png" />
+                <a href="/app">Dust</a>
+            </div>
+            <img class="notifications" src="/notifications.png" />
+        </div>
+        <div class="content">
+            <slot />
+        </div>
     </div>
 </nav>
 <style>
-    :global(*){
-        outline: 1px solid blue;
-    }
     nav{
         display:grid;
         grid-template-columns: clamp(200px, 15vw, 600px) auto;
@@ -48,15 +55,14 @@
         border-right: 1px solid var(--gray);
         padding: 1rem 2rem;
         min-height: 100vh;
-        background-color: red;
     }
-    .nav > div{
+    .item, .title{
         display:flex;
         align-items:center;
         gap: 1rem;
         margin-bottom: 1rem;
     }
-    .nav > div > a{
+    a{
         display: inline;
         text-decoration: none;
         color: inherit;
@@ -66,17 +72,30 @@
         font-weight: bold;
     }
     .title{
-        display: block;
-        padding-bottom: 5rem;
+        display: flex;
+        margin-bottom: 4rem;
     }
-    .app{
+    .content{
         padding: 1rem;
     }
+    .bar{
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+    }
+    .bar > .title{
+        display: none;
+        margin-bottom: 0;
+    }
+    .bar > .settings{
+        display: none;
+    }
+    
     @media (max-width: 600px){
         nav{
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: auto 10vh;
+            grid-template-rows: auto 7.5vh;
             height: 100vh;
         }
         .app{
@@ -84,24 +103,33 @@
             grid-column-end: 1;
         }
         .nav{
-            min-height: 10vh;
+            min-height: 0;
             grid-row-start: 2;
             grid-row-end: 2;
             display: flex;
             flex-direction: row;
+            justify-content: space-around;
+            border-right: 0;
+            border-top: 1px solid var(--gray);
         }
         .nav > div{
             margin-bottom: 0;
+            padding: 0;
         }
-        .nav > div > img{
+        .nav > div > a{
             display: none;
         }
         .title{
-            padding-bottom: 0;
             display: none;
         }
-        .title > a{
-            display: none;
+        .bar{
+            justify-content: space-between;
+        }
+        .bar > .title{
+            display: flex;
+        }
+        .bar > .settings, .bar > .notifications{
+            display: block;
         }
     }
 </style>
