@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&display=swap');
 
 :root{
-    --accentOrange: #ff6f00;
-    --accentBlue: #00b0ff;
-    --dark: #000000;
-    --medium: #1c1c1c;
+    --bgDark: #071e22;
+    --bgLight: #0b2f36;
+    --gray: #788585;
+    --light: #dff8eb;
+    --accent: #ff715b;
+    --accentDark: #6c534e;
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -26,7 +28,7 @@ body{
     padding: 0;
     overflow: overlay;
 	min-height: 100vh;
-    background-color: var(--dark);
+    background-color: var(--bgDark);
     color: white;
 }
 
