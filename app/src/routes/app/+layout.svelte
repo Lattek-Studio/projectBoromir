@@ -90,7 +90,13 @@
     .bar > .settings{
         display: none;
     }
-    
+    img{
+        transition: all 0.2s ease-in-out;
+    }
+    img:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
     @media (max-width: 600px){
         nav{
             display: grid;
