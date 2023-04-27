@@ -96,6 +96,7 @@
     img:hover{
         cursor: pointer;
         transform: scale(1.1);
+        opacity: 0.5;
     }
     @media (max-width: 600px){
         nav{
