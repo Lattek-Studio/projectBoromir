@@ -1,10 +1,13 @@
 <script>
-    export let name;
-    export let value;
+    export let name = "CO2";
+    export let value = {
+        value: 0,
+        unit: "ppm"
+    };
 </script>
 <div class="container">
-    <h1>{name}</h1>
-    <p>{value.value}{value.unit}</p>
+    <p>{name}</p>
+    <h2>{value.value}{value.unit}</h2>
     <div class="bar">
 
     </div>
@@ -12,7 +15,7 @@
 <style>
     .container{
         background-color: var(--bgLight);
-        padding: 1rem;
+        padding-inline: 1rem;
         border-radius: 0.5rem;
         /* margin-block: 1rem; */
         width: fit-content;
@@ -20,7 +23,7 @@
         gap: 1rem;
         align-items: center;
     }
-    h1{
+    p{
         border-right: 1px solid var(--gray);
         width: fit-content;
         padding-right: 1rem;
