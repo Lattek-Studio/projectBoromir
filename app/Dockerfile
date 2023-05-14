@@ -16,7 +16,7 @@ RUN npm install
 
 
 
-COPY ./app/ ./
+COPY ./app/* ./
 
 WORKDIR .
 RUN npm run build
