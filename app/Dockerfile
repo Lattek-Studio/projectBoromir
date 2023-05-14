@@ -11,7 +11,6 @@ RUN apk add build-base
 
 
 COPY ./app/package.json .
-COPY ./app/package-lock.json .
 WORKDIR .
 RUN npm install
 
