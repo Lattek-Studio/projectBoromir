@@ -34,5 +34,5 @@ jobs:
           sudo docker stop $CONTAINER_NAME || true
           sudo docker rm --force $CONTAINER_NAME || true
           sudo docker rmi $IMAGE_NAME || true
-          sudo docker run --detach --restart always --network lazar-network \
+          sudo docker run -p 1234:80 --detach --restart always --network lazar-network \
             --name $CONTAINER_NAME $IMAGE_NAME:latest
