@@ -1,0 +1,2 @@
+#make new splash screen
+npx @capacitor/assets generate --iconBackgroundColor '#071e22' --iconBackgroundColorDark '#222222' --splashBackgroundColor '#071e22' --splashBackgroundColorDark '#111111' --pwaManifestPath ./static/manifest.json --logoSplashScale 0.1

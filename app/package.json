@@ -4,11 +4,13 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"android": "npm run build && npx cap sync android && npx cap open android",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
+		"@capacitor/assets": "^2.0.4",
 		"@capacitor/cli": "^4.7.3",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
@@ -26,6 +28,7 @@
 		"@capacitor/android": "^4.7.3",
 		"@capacitor/core": "^4.7.3",
 		"@capacitor/ios": "^4.7.3",
-		"@sveltejs/adapter-static": "^2.0.1"
+		"@sveltejs/adapter-static": "^2.0.1",
+		"firebase": "^9.19.1"
 	}
 }
