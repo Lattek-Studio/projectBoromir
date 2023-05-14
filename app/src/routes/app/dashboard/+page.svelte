@@ -1,54 +1,19 @@
 <script>
     import { Tab } from '$ui'
-	import { dbStore } from '$lib/stores/db'
-    export let data;
-    dbStore.subscribe((curr) => {
-		console.log('CURR', curr);
-        if (Object.keys(curr).length === 0) return;
-		const units = {
-            CO2: "ppm",
-            TVOC: "µg/m3",
-            humidity: "%",
-            temperature: "°C",
-            pressure: "Pa",
-            timestamp: '',
-        }
-        Object.keys(curr).forEach(key => {
-            curr[key] = {
-                value: parseFloat(curr[key]).toFixed(2),
-                unit: units[key]
-            }
-        })
-        curr.humidity.value = parseFloat(curr.humidity.value).toFixed(2);
-        curr.temperature.value = parseFloat(curr.temperature.value).toFixed(2);
-        // curr.pressure.value = parseFloat(curr.pressure.value).toFixed(2);
-        data = curr;
-	});
-    data = {
-        "Pressure": {
-            value: 100757.7,
-            unit: "Pa"
-        },
-        "Particles": {
-            value: 3,
-            unit: "ugm3"
-        },
-        "Humidity": {
-            value: 2.3,
-            unit: "%"
-        },
-        "Temperature": {
-            value: 22.975,
-            unit: "°C"
-        },
-    }
+    import { sensors } from '$lib/supabase';
+    
 </script>
-<h1>Dashboard</h1>
-<div class="container">
-    {#each Object.entries(data) as [type, value]}
-        <Tab name={type} value={value} />
-    {/each}
-</div>
+<h1>Dashboard v5</h1>
+<!-- {JSON.stringify($sensors)} -->
+{#if $sensors != 0}
+    <div class="container">
+        {#each Object.entries($sensors) as [type, value]}
+            <Tab name={type} value={value} />
+        {/each}
+    </div>
+{:else}
+        <p>Loading...</p>
+{/if}
 <style>
     .container{
         display: flex;
