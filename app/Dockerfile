@@ -10,17 +10,12 @@ RUN npm install -g node-gyp
 RUN apk add build-base
 
 
-WORKDIR ./my-app
 
-COPY ./app/package.json ./my-app/app/
-WORKDIR ./my-app/app/
+COPY ./app/package.json .
 RUN npm install
 
+COPY ./app/ ./
 
-
-COPY ./app/ ./my-app/app/
-
-WORKDIR ./my-app/app/
 RUN npm run build
 ENV BODY_SIZE_LIMIT 0
 ENV PORT 80
