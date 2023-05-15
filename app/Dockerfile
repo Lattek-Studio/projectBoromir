@@ -9,9 +9,8 @@ RUN npm install -g node-gyp
 
 RUN apk add build-base
 
-WORKDIR /app
 
-COPY package*.json ./
+COPY ./package*.json .
 RUN npm install
 
 COPY . .
