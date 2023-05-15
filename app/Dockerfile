@@ -9,19 +9,16 @@ RUN npm install -g node-gyp
 
 RUN apk add build-base
 
+RUN mkdir -p /site
 
-COPY ./app/package.json .
-COPY ./app/package-lock.json .
-WORKDIR .
+COPY ./app/package.json site/
+WORKDIR site/
 RUN npm install
-
-
 
 COPY ./app/ ./
 
-WORKDIR .
 RUN npm run build
 ENV BODY_SIZE_LIMIT 0
 ENV PORT 80
 EXPOSE 80
-CMD ["node", "build"]
+CMD ["npm", "run", "start"]
