@@ -22,7 +22,7 @@ jobs:
           sudo docker build --pull --cache-from $IMAGE_NAME \
             --tag $IMAGE_NAME:$GITHUB_SHA \
             --tag $IMAGE_NAME:latest \
-            ./app
+            . -f ./app/Dockerfile
           sudo docker push $IMAGE_NAME:$GITHUB_SHA
           sudo docker push $IMAGE_NAME:latest
       - name: Update Docker Container
