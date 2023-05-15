@@ -9,14 +9,11 @@ RUN npm install -g node-gyp
 
 RUN apk add build-base
 
-RUN mkdir -p /site
-
-COPY ./app/package.json site/
-WORKDIR site/
+COPY ./app/package.json .
 RUN npm install
 
 COPY ./app/ ./
-
+COPY ./app/sveltenode.config.js ./svelte.config.js
 RUN npm run build
 ENV BODY_SIZE_LIMIT 0
 ENV PORT 80

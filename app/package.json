@@ -30,6 +30,7 @@
 		"@capacitor/core": "^4.7.3",
 		"@capacitor/ios": "^4.7.3",
 		"@supabase/supabase-js": "^2.21.0",
+		"@sveltejs/adapter-node": "^1.2.4",
 		"@sveltejs/adapter-static": "^2.0.1",
 		"firebase": "^9.19.1"
 	}
