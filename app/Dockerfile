@@ -21,4 +21,4 @@ ENV BODY_SIZE_LIMIT 0
 ENV PORT 80
 EXPOSE 80
 
-CMD ["node", "build"]
+# CMD ["node", "build"]
