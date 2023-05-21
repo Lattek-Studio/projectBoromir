@@ -2,6 +2,15 @@
 	import { Tab } from '$ui'
 	import { authStore } from '$lib/stores/auth'
 	import { dbStore } from '$lib/stores/db'
+	import { Capacitor } from "@capacitor/core";
+	import { StatusBar, Style } from '@capacitor/status-bar';
+  import { onMount } from 'svelte';
+
+	onMount(async () => {
+		if (Capacitor.isPluginAvailable('StatusBar') && Capacitor.getPlatform() !== 'web'){
+			StatusBar.setBackgroundColor({ color: '#3880ff' });
+		}
+	});
 	let uid;
 	authStore.subscribe((curr) => {
 		console.log('CURR', curr);
