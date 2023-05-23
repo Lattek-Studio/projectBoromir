@@ -1,3 +1,6 @@
+#include <ArduinoJson.h>
+#include <ArduinoJson.hpp>
+
 
 //Sensor lib configs
 #include <SparkFunCCS811.h>
@@ -7,6 +10,10 @@
 
 CCS811 myCCS811(CCS811_ADDR);
 BME280 myBME280;
+
+//json for caching data
+const int capacity = JSON_OBJECT_SIZE(10);
+StaticJsonDocument<capacity> wthr_data;
 
 void setup() {
   Serial.begin(9600);
@@ -48,29 +55,26 @@ void setup() {
 
 }
 
-void printData()
+void cacheData()
 {
-  Serial.print(" CO2[");
-  Serial.print(myCCS811.getCO2());
-  Serial.print("]ppm");
+  wthr_data["CO2_ppm"] = myCCS811.getCO2();
+  //Serial.print(myCCS811.getCO2());
 
-  Serial.print(" TVOC[");
-  Serial.print(myCCS811.getTVOC());
-  Serial.print("]ppb");
+  wthr_data["TVOC_ppb"] = myCCS811.getTVOC();
+  //Serial.print(myCCS811.getTVOC());
 
-  Serial.print(" temp[");
-  Serial.print(myBME280.readTempC(), 1);
-  Serial.print("]C");
+  wthr_data["average_TEMP_celsius"] = myBME280.readTempC();
+  //Serial.print(myBME280.readTempC(), 1);
 
-  Serial.print(" pressure[");
-  Serial.print(myBME280.readFloatPressure(), 2);
-  Serial.print("]Pa");
+  wthr_data["PRESSURE_pascals"] = myBME280.readFloatPressure();
+  //Serial.print(myBME280.readFloatPressure(), 2);
 
-  Serial.print(" humidity[");
-  Serial.print(myBME280.readFloatHumidity(), 0);
-  Serial.print("]%");
+  wthr_data["HUMIDITY_percent"] = myBME280.readFloatHumidity();
+  //Serial.print(myBME280.readFloatHumidity(), 0);
 
-  Serial.println();
+  String serial_json;
+  serializeJson(wthr_data,serial_json);
+  serializeJsonPretty(wthr_data,Serial);
 }
 
 void printDriverError( CCS811Core::status errorCode )
@@ -103,7 +107,7 @@ void loop()
   if (myCCS811.dataAvailable()) //Check to see if CCS811 has new data (it's the slowest sensor)
   {
     myCCS811.readAlgorithmResults(); //Read latest from CCS811 and update tVOC and CO2 variables
-    printData();
+    cacheData();
   }
   else if (myCCS811.checkForStatusError())
   {
