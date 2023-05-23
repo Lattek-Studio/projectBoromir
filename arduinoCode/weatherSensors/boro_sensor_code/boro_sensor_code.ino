@@ -107,7 +107,7 @@ void cacheData()
   wthr_data["PRESSURE_pascals"] = myBME280.readFloatPressure();
   //Serial.print(myBME280.readFloatPressure(), 2);
 
-  wthr_data["HUMIDITY_percent"] = String(myBME280.readFloatHumidity(), 2);
+  wthr_data["HUMIDITY_percent"] = String(myBME280.readFloatHumidity(), 1);
   //Serial.print(myBME280.readFloatHumidity(), 0);
 
   //Write NULL for columns without input
