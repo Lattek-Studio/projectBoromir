@@ -1,6 +1,13 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+#include <WiFiClientSecure.h>
+
 #include <ArduinoJson.h>
 #include <ArduinoJson.hpp>
 
+//network configs
+const char* ssid = "OUR internet";
+const char* pass = "3.6 roentgen";
 
 //Sensor lib configs
 #include <SparkFunCCS811.h>
@@ -11,13 +18,41 @@
 CCS811 myCCS811(CCS811_ADDR);
 BME280 myBME280;
 
+//db config
+// Supabase API endpoint and key
+const char* supabaseUrl = "https://supaapi.byteforce.ro/rest/v1";
+const char* realtime_table = "sensor_realtime";
+const char* arch_table = "dust_arch";
+const char* supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q";
+const char* bearer_key = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q";
+// the ID of the row
+const char* id_rt = "2"; //1 = weather station; 2 = room sensor 
+
 //json for caching data
 const int capacity = JSON_OBJECT_SIZE(10);
 StaticJsonDocument<capacity> wthr_data;
+String serial_json;
+
+//timer for archiving
+unsigned long previousTime = 0;
+unsigned long interval = 120000;
+
 
 void setup() {
   Serial.begin(9600);
   Wire.begin();
+
+  //connect to wifi
+  Serial.print("Connecting");
+  WiFi.begin(ssid,pass);
+  while(WiFi.status() != WL_CONNECTED)
+  {
+    
+   
+    delay(1000);
+    Serial.print(".");
+  }
+  Serial.print("Connected :D \n");
 
   //Sensor setup ----------------------------
   //CCS811
@@ -72,7 +107,6 @@ void cacheData()
   wthr_data["HUMIDITY_percent"] = myBME280.readFloatHumidity();
   //Serial.print(myBME280.readFloatHumidity(), 0);
 
-  String serial_json;
   serializeJson(wthr_data,serial_json);
   serializeJsonPretty(wthr_data,Serial);
 }
@@ -114,6 +148,60 @@ void loop()
     Serial.println(myCCS811.getErrorRegister());
   }
 
-  delay(2000);
+  //Update realtime db ----------------------------
+  HTTPClient http;
+  WiFiClientSecure client;
+  client.setInsecure();
+
+  String url_str = String (supabaseUrl) + "/" + String(realtime_table) + "?id=eq." + String(id_rt);
+
+  http.begin(client, url_str);
+  http.addHeader("Content-Type", "application/json");
+  http.addHeader("apikey", supabaseKey);
+  http.addHeader("Authorization", bearer_key);
+  String payload = serial_json;
+
+  int httpResponseCode = http.sendRequest("PATCH",payload);
+
+  // check if the request was successful
+  if (httpResponseCode > 0) {
+    Serial.printf("HTTP response code: %d\n", httpResponseCode);
+    String response = http.getString();
+    Serial.println(response);
+  } else {
+    Serial.println("Error sending PUT request");
+    Serial.printf("HTTP response code: %d\n", httpResponseCode);
+    String response = http.getString();
+    Serial.println(response);
+  }
+
+  //check if you need to update archive db
+  unsigned long currentTime = millis();
+  if (currentTime - previousTime >= interval) {
+    String url_str = String(supabaseUrl) + "/" + String(arch_table);
+    http.begin(client, url_str);
+    http.addHeader("Content-Type", "application/json");
+    http.addHeader("apikey", supabaseKey);
+    http.addHeader("Authorization", bearer_key);
+    String payload = serial_json;
+
+    int httpResponseCode = http.sendRequest("POST",payload);
+
+    // check if the request was successful
+    if (httpResponseCode > 0) {
+      Serial.printf("HTTP response code: %d\n", httpResponseCode);
+      String response = http.getString();
+      Serial.println(response);
+    } else {
+    Serial.println("Error sending PUT request");
+    }
+
+    previousTime = currentTime;
+  }  
+
+  // disconnect from the server
+  http.end();
+
+  delay(10000);
 }
 
