@@ -92,6 +92,9 @@ void setup() {
 
 void cacheData()
 {
+  wthr_data.clear();
+  serial_json.clear();
+
   wthr_data["CO2_ppm"] = myCCS811.getCO2();
   //Serial.print(myCCS811.getCO2());
 
@@ -104,8 +107,14 @@ void cacheData()
   wthr_data["PRESSURE_pascals"] = myBME280.readFloatPressure();
   //Serial.print(myBME280.readFloatPressure(), 2);
 
-  wthr_data["HUMIDITY_percent"] = myBME280.readFloatHumidity();
+  wthr_data["HUMIDITY_percent"] = String(myBME280.readFloatHumidity(), 2);
   //Serial.print(myBME280.readFloatHumidity(), 0);
+
+  //Write NULL for columns without input
+  //wthr_data["dht_TEMP_celsius"] = nullptr;
+  //wthr_data["bmp280_TEMP_celsius"] = nullptr;
+  //wthr_data["PARTICLES_ugm3"] = nullptr;
+
 
   serializeJson(wthr_data,serial_json);
   serializeJsonPretty(wthr_data,Serial);
@@ -160,6 +169,8 @@ void loop()
   http.addHeader("apikey", supabaseKey);
   http.addHeader("Authorization", bearer_key);
   String payload = serial_json;
+  //debug payload
+  Serial.println(payload);
 
   int httpResponseCode = http.sendRequest("PATCH",payload);
 
@@ -197,11 +208,11 @@ void loop()
     }
 
     previousTime = currentTime;
-  }  
+  } 
 
   // disconnect from the server
   http.end();
 
-  delay(10000);
+  delay(8000);
 }
 
