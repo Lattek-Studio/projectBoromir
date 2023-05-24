@@ -18,6 +18,8 @@ const char* pass = "galati1923";
 CCS811 myCCS811(CCS811_ADDR);
 BME280 myBME280;
 
+float temp_offset = -5.1; //offset temp reading to compensate for sensor heat
+
 //db config
 // Supabase API endpoint and key
 const char* supabaseUrl = "https://supaapi.byteforce.ro/rest/v1";
@@ -101,7 +103,7 @@ void cacheData()
   wthr_data["TVOC_ppb"] = myCCS811.getTVOC();
   //Serial.print(myCCS811.getTVOC());
 
-  wthr_data["average_TEMP_celsius"] = myBME280.readTempC();
+  wthr_data["average_TEMP_celsius"] = myBME280.readTempC()+temp_offset;
   //Serial.print(myBME280.readTempC(), 1);
 
   wthr_data["PRESSURE_pascals"] = myBME280.readFloatPressure();
@@ -151,6 +153,7 @@ void loop()
   {
     myCCS811.readAlgorithmResults(); //Read latest from CCS811 and update tVOC and CO2 variables
     cacheData();
+    myCCS811.setEnvironmentalData(myBME280.readFloatHumidity(), myBME280.readTempC()+temp_offset); //calibrate co2 and tvoc readings using humidity and temp data from BME
   }
   else if (myCCS811.checkForStatusError())
   {
