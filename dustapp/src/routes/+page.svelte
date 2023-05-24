@@ -9,6 +9,10 @@
         dataInterval = sensorsStore.subscribe((curr)=>{
         let temp = curr;
         data = {
+            'Carbon Dioxide': {
+                value: temp.CO2_ppm,
+                unit: 'ppm'
+            },
             'Temperature': {
                 value: temp.average_TEMP_celsius,
                 unit: '°C'
@@ -21,9 +25,9 @@
                 value: temp.PRESSURE_pascals?.toFixed(0),
                 unit: 'Pa'
             },
-            'Particles': {
-                value: temp.PARTICLES_ugm3,
-                unit: 'ug/m3'
+            'TVOC': {
+                value: temp.TVOC_ppb,
+                unit: 'ppb'
             }
         }
     });
@@ -75,7 +79,7 @@
         gap: 1rem;
         justify-content: center;
         align-items: center;
-        min-width: 60%;
+        min-width: min(60%, 250px);
     }
 
     .container{

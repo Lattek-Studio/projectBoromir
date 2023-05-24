@@ -2,7 +2,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { writable } from "svelte/store";
 
-const id = 1
+const id = 2
 
 
 // Create a single supabase client for interacting with your database
