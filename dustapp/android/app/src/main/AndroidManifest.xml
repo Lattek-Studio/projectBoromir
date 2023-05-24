@@ -28,6 +28,7 @@
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
         </provider>
     </application>
+    <meta-data android:name="android.max_aspect" android:value="2.1" />
 
     <!-- Permissions -->
 

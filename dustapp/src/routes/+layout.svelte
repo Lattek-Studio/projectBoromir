@@ -6,7 +6,7 @@
 
     import { Capacitor } from "@capacitor/core";
 	import { StatusBar, Style } from '@capacitor/status-bar';
-    
+
     let path;
     $: path = $page.url.pathname;
 
@@ -15,7 +15,12 @@
 
 	onMount(async () => {
 		if (Capacitor.isPluginAvailable('StatusBar') && Capacitor.getPlatform() !== 'web'){
-			StatusBar.setBackgroundColor({ color: '#071e22' });
+			// StatusBar.setBackgroundColor({ color: '#071e22' });
+            StatusBar.setStyle({ style: Style.Dark }),
+            StatusBar.setBackgroundColor({
+                color: "#071e22"
+            })
+            // StatusBar.hide()
 		}
 	});
 </script>
