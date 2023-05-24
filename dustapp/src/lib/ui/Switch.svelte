@@ -51,7 +51,7 @@
     }
     
     input:focus + .slider {
-      /* box-shadow: 0 0 1px var(--accent); */
+      box-shadow: 0 0 1px var(--accent);
     }
     
     input:checked + .slider:before {

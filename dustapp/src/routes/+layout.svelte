@@ -84,6 +84,7 @@
         padding: 1rem 1.25rem;
         margin-bottom: 1rem;
         border-radius: 69rem;
+        border: 1px solid transparent;
     }
     a{
         display: inline;
