@@ -1,5 +1,5 @@
 <script>
-    import { Tab } from '$ui'
+    import { Tab, Switch } from '$ui'
 	import { dbStore } from '$lib/stores/db'
     import { sensorsStore } from '$lib/supabase';
     import { onMount, onDestroy } from 'svelte';
@@ -27,12 +27,15 @@
             }
         }
     });
+    return dataInterval;
     })
     onDestroy(() => { 
         data = 0;
     })
-</script>
 
+    export let check
+</script>
+{check}
 <div class="container">
     <div class="circle">
         <svg width="274" height="234" viewBox="0 0 274 234" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,8 +58,9 @@
             <p>Loading...</p>
     {/if}
 </div>
+<Switch bind:checked={check}/>
 
-    
+<Switch />
 
 <style>
     .items{
@@ -65,7 +69,7 @@
         gap: 1rem;
         justify-content: center;
         align-items: center;
-        width: 60%;
+        min-width: 60%;
     }
 
     .container{

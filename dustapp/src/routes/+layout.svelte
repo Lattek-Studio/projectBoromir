@@ -109,6 +109,7 @@
     }
     .content{
         padding: 1rem;
+        overflow-y: auto;
     }
     .app{
         display:flex;
