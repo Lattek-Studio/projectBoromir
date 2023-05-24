@@ -26,31 +26,31 @@
 </script>
 <nav>
     <div class="nav">
-        <div class="{path=='/'?'active':''} title" on:click={()=>goto("/")}>
-            <img src="/favicon.png" />
+        <div class="{path=='/'?'active':''} title" on:mousedown={()=>goto("/")}>
+            <img src="/favicon.png" alt="logo"/>
             <a href="/">Dust</a>
         </div>
-        <div class="{path=='/'?'active':''} item" on:click={()=>goto("/")}>
-            <img src="/dashboard.png" />
+        <div class="{path=='/'?'active':''} item" on:mousedown={()=>goto("/")}>
+            <img src="/dashboard.png" alt="dashboard"/>
             <a href="/">Dashboard</a>
         </div>
-        <div class="{path=='/statistics'?'active':''} item" on:click={()=>goto("/statistics")}>
-            <img src="/statistics.png" />
+        <div class="{path=='/statistics'?'active':''} item" on:mousedown={()=>goto("/statistics")}>
+            <img src="/statistics.png" alt="statistics"/>
             <a href="/statistics">Statistics</a>
         </div>
-        <div class="{path=='/performance'?'active':''} item" on:click={()=>goto("/performance")}>
-            <img src="/performance.png" />
+        <div class="{path=='/performance'?'active':''} item" on:mousedown={()=>goto("/performance")}>
+            <img src="/performance.png" alt="performance"/>
             <a href="/performance">Performance</a>
         </div>
-        <div class="{path=='/app/settings'?'active':''} item" on:click={()=>goto("/settings")}>
+        <div class="{path=='/app/settings'?'active':''} item" on:mousedown={()=>goto("/settings")}>
             <img src="/settings.png" />
             <a href="/settings">Settings</a>
         </div>
     </div>
     <div class="app">
         <div class="bar">
-            <img class="settings" src="/settings.png"  on:click={()=>goto("/settings")}/>
-            <div class="{path=='/'?'active':''} title" on:click={()=>goto("/")}>
+            <img class="settings" src="/settings.png" alt="logo"  on:mousedown={()=>goto("/settings")}/>
+            <div class="{path=='/'?'active':''} title" on:mousedown={()=>goto("/")}>
                 <img src="/favicon.png" />
                 <a href="/">Dust</a>
             </div>
