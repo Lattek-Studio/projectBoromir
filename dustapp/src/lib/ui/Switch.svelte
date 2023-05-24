@@ -1,5 +1,5 @@
 <script>
-    export let checked = true;
+    export let checked;
 </script>
 
 <label class="switch">

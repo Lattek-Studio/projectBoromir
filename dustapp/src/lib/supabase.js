@@ -2,10 +2,43 @@
 import { createClient } from '@supabase/supabase-js'
 import { writable } from "svelte/store";
 
-// Create a single supabase client for interacting with your database
-export const supabase = createClient('https://supaapi.byteforce.ro/', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE')
-export const sensorsStore = writable({})
 const id = 1
+
+
+// Create a single supabase client for interacting with your database
+export const supabase = createClient('https://supaapi.byteforce.ro/', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q')
+export const sensorsStore = writable({})
+
+function createFurniture() {
+	const { subscribe, set, update } = writable({});
+
+
+  const setAndSync = async (val) => {
+    // set(val); // Update the local store value
+
+    const { data, error } = await supabase
+      .from('sensor_realtime')
+      .update(val)
+      .eq('id', id); // Assuming 'id' is the identifier for your record
+
+    if (error) {
+      console.error('Error updating data:', error.message);
+      return;
+    }
+
+    console.log(data);
+  };
+
+
+	return {
+		subscribe,
+		setDB: (val) => set(val),
+		set: setAndSync,
+		reset: () => set({})
+	};
+}
+
+export const furnitureStore = createFurniture()
 try{
     (async () => {
         const { data, error } = await supabase
@@ -18,6 +51,10 @@ try{
     console.log(data)
     if(data){
         sensorsStore.set(data[0])
+        furnitureStore.setDB({
+          fan: data[0].fan,
+          geam: data[0].geam
+        })
     }
     })();
 }catch(e){
@@ -36,13 +73,11 @@ const channel = supabase
           console.log(payload.new);
           // Assuming sensorsStore is defined and represents your data store
           sensorsStore.set(payload.new);
+          furnitureStore.setDB({
+            fan: payload.new.fan,
+            geam: payload.new.geam
+          })
         }
     }
   )
   .subscribe()
-
-// setInterval(async ()=>{
-//     let { data, error } = await supabase.from('sensor_realtime').select('*')
-//     if (error) console.log(error)
-//     if (data) sensorsStore.set(data[0])
-// }, 1000)

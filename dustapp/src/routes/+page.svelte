@@ -1,7 +1,7 @@
 <script>
     import { Tab, Switch } from '$ui'
 	import { dbStore } from '$lib/stores/db'
-    import { sensorsStore } from '$lib/supabase';
+    import { sensorsStore, furnitureStore } from '$lib/supabase';
     import { onMount, onDestroy } from 'svelte';
     export let data = 0;
     let dataInterval
@@ -33,9 +33,7 @@
         data = 0;
     })
 
-    export let check
 </script>
-{check}
 <div class="container">
     <div class="circle">
         <svg width="274" height="234" viewBox="0 0 274 234" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,10 +55,18 @@
     {:else}
             <p>Loading...</p>
     {/if}
-</div>
-<Switch bind:checked={check}/>
 
-<Switch />
+    <div class="buttons">
+        <div class="button">
+            <p>Geam</p>
+            <Switch bind:checked={$furnitureStore.geam}/>
+        </div>
+        <div class="button">
+            <p>Fan</p>
+            <Switch bind:checked={$furnitureStore.fan}/>
+        </div>
+    </div>
+</div>
 
 <style>
     .items{
@@ -100,5 +106,16 @@
     .sms{
         font-size: 1.5rem;
         font-weight: 300;
+    }
+
+    .buttons{
+        display:flex;
+        gap: 2rem;
+    }
+    .button{
+        display:flex;
+        place-content: center;
+        align-items: center;
+        gap: 1rem;
     }
 </style>
