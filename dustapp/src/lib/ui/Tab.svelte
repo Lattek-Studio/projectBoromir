@@ -6,26 +6,29 @@
     };
 </script>
 <div class="container">
-    <p>{name}</p>
-    <h2>{value.value}{value.unit}</h2>
-    <div class="bar">
-
-    </div>
+    <span class="title">{name}</span>
+    <span class="value">{value.value}{value.unit}</span>
 </div>
 <style>
     .container{
         background-color: var(--bgLight);
-        padding-inline: 1rem;
-        border-radius: 0.5rem;
-        /* margin-block: 1rem; */
-        width: fit-content;
+        border-radius: 69rem;
         display:flex;
         gap: 1rem;
         align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
-    p{
-        border-right: 1px solid var(--gray);
-        width: fit-content;
-        padding-right: 1rem;
+    span{
+        padding: 1rem;
+    }
+    .title{
+        font-weight: 400;
+    }
+    .value{
+        background-color: var(--bgDark);
+        border: 1px solid var(--accent);
+        border-radius: 69rem;
+        font-weight: 700;
     }
 </style>

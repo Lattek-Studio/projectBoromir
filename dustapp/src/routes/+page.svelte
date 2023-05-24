@@ -9,19 +9,19 @@
         dataInterval = sensorsStore.subscribe((curr)=>{
         let temp = curr;
         data = {
-            'temperature': {
+            'Temperature': {
                 value: temp.average_TEMP_celsius,
                 unit: '°C'
             },
-            'humidity': {
+            'Humidity': {
                 value: temp.HUMIDITY_percent,
                 unit: '%'
             },
-            'pressure': {
-                value: temp.PRESSURE_pascals,
+            'Pressure': {
+                value: temp.PRESSURE_pascals.toFixed(0),
                 unit: 'Pa'
             },
-            'particles': {
+            'Particles': {
                 value: temp.PARTICLES_ugm3,
                 unit: 'ug/m3'
             }
@@ -65,6 +65,7 @@
         gap: 1rem;
         justify-content: center;
         align-items: center;
+        width: 60%;
     }
 
     .container{
@@ -82,7 +83,6 @@
         transform: translate(-50%, -50%);
         text-align: center;
         line-height: 0.1;
-
     }
     .aqi{
         font-size: 2rem;
