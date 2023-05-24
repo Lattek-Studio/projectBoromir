@@ -26,7 +26,7 @@
 </script>
 <nav>
     <div class="nav">
-        <div class="{path=='/'?'active':''} title" on:mousedown={()=>goto("/")}>
+        <div class="title" on:mousedown={()=>goto("/")}>
             <img src="/favicon.png" alt="logo"/>
             <a href="/">Dust</a>
         </div>
@@ -42,15 +42,11 @@
             <img src="/performance.png" alt="performance"/>
             <a href="/performance">Performance</a>
         </div>
-        <div class="{path=='/app/settings'?'active':''} item" on:mousedown={()=>goto("/settings")}>
-            <img src="/settings.png" />
-            <a href="/settings">Settings</a>
-        </div>
     </div>
     <div class="app">
         <div class="bar">
             <img class="settings" src="/settings.png" alt="logo"  on:mousedown={()=>goto("/settings")}/>
-            <div class="{path=='/'?'active':''} title" on:mousedown={()=>goto("/")}>
+            <div class="title" on:mousedown={()=>goto("/")}>
                 <img src="/favicon.png" />
                 <a href="/">Dust</a>
             </div>
@@ -76,11 +72,16 @@
         padding: 1rem 2rem;
         min-height: 100vh;
     }
-    .item, .title{
+    .title{
+
+    }
+    .item{
         display:flex;
         align-items:center;
         gap: 1rem;
+        padding: 1rem 1rem;
         margin-bottom: 1rem;
+        border-radius: 69rem;
     }
     a{
         display: inline;
@@ -95,12 +96,14 @@
         display: flex;
         margin-bottom: 4rem;
     }
-    .nav > div:not(.title){
+    .nav > div:not(.title):not(.active){
         opacity: 0.5;
     }
-    .nav > div.active{
+    .active{
         /* border-bottom: 1px solid var(--accent); */
         opacity: 1;
+        border: 1px solid var(--accent);
+        background-color: var(--bgLight);
     }
     .content{
         padding: 1rem;
@@ -117,7 +120,7 @@
     .bar > .settings{
         display: none;
     }
-    .nav > div{
+    .nav > *{
         transition: all 0.2s ease-in-out;
     }
     .nav > div:not(.title):hover{
@@ -129,7 +132,7 @@
         nav{
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: auto 7.5vh;
+            grid-template-rows: auto 9vh;
             height: 100vh;
         }
         .app{
@@ -148,10 +151,6 @@
         }
         .nav > div{
             margin-bottom: 0;
-            padding: 0;
-        }
-        .nav > div > a{
-            display: none;
         }
         .title{
             display: none;
@@ -164,6 +163,9 @@
         }
         .bar > .settings, .bar > .notifications{
             display: block;
+        }
+        .item:not(.active) > a{
+            display: none;
         }
     }
 </style>
