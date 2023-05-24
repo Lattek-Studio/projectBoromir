@@ -18,7 +18,7 @@
                 unit: '%'
             },
             'Pressure': {
-                value: temp.PRESSURE_pascals.toFixed(0),
+                value: temp.PRESSURE_pascals?.toFixed(0),
                 unit: 'Pa'
             },
             'Particles': {

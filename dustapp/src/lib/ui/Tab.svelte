@@ -5,10 +5,17 @@
         unit: "ppm"
     };
 </script>
+{#if value.value != undefined}
 <div class="container">
     <span class="title">{name}</span>
     <span class="value">{value.value}{value.unit}</span>
 </div>
+{:else}
+<div class="container">
+    <span class="title">{name}</span>
+    <span class="value">Loading...</span>
+</div>
+{/if}
 <style>
     .container{
         background-color: var(--bgLight);
