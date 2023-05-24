@@ -59,8 +59,8 @@
 </nav>
 <style>
     nav{
-        display:grid;
-        grid-template-columns: clamp(200px, 15vw, 600px) auto;
+        display:flex;
+        /* grid-template-columns: clamp(200px, 15vw, 600px) auto; */
     }
     img{
         height: 1.5rem;
@@ -69,17 +69,19 @@
         display:flex;
         flex-direction:column;
         border-right: 1px solid var(--gray);
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
         min-height: 100vh;
     }
     .title{
-
+        display:flex;
+        align-items:center;
+        place-content: center;
     }
     .item{
         display:flex;
         align-items:center;
         gap: 1rem;
-        padding: 1rem 1rem;
+        padding: 1rem 1.25rem;
         margin-bottom: 1rem;
         border-radius: 69rem;
     }
@@ -107,6 +109,11 @@
     }
     .content{
         padding: 1rem;
+    }
+    .app{
+        display:flex;
+        width: 100%;
+        flex-direction: column;
     }
     .bar{
         display: flex;
