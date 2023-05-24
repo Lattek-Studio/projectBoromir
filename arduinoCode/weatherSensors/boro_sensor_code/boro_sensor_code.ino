@@ -6,8 +6,8 @@
 #include <ArduinoJson.hpp>
 
 //network configs
-const char* ssid = "OUR internet";
-const char* pass = "3.6 roentgen";
+const char* ssid = "500102 2.4g";
+const char* pass = "galati1923";
 
 //Sensor lib configs
 #include <SparkFunCCS811.h>
@@ -21,7 +21,7 @@ BME280 myBME280;
 //db config
 // Supabase API endpoint and key
 const char* supabaseUrl = "https://supaapi.byteforce.ro/rest/v1";
-const char* realtime_table = "dust_realtime";
+const char* realtime_table = "sensor_realtime";
 const char* arch_table = "dust_arch";
 const char* supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q";
 const char* bearer_key = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q";
