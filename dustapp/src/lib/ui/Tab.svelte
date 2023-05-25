@@ -37,5 +37,7 @@
         border: 1px solid var(--accent);
         border-radius: 69rem;
         font-weight: 700;
+        min-width: 128px;
+        text-align: center;
     }
 </style>
