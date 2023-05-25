@@ -56,10 +56,37 @@ try{
           geam: data[0].geam
         })
     }
+
+
     })();
 }catch(e){
     console.log(e)
 }
+
+
+(async () => {
+  try {
+ 
+const column_name = 'HUMIDITY_percent'
+const end_time = '2023-05-12 14:35:38.301766+00'
+const start_time = '2023-05-12 10:48:42.09073+00'
+const table_name = 'sensors_arch'
+    let { data, error } = await supabase
+  .rpc('get_median_value', {
+    column_name, 
+    end_time, 
+    start_time, 
+    table_name
+  })
+console.log(data)
+
+
+  } catch (e) {
+      // Deal with the fact the chain failed
+  }
+  // `text` is not available here
+})();
+
 const channel = supabase
   .channel('sensor_realtime')
   .on(
@@ -81,3 +108,6 @@ const channel = supabase
     }
   )
   .subscribe()
+
+
+  
