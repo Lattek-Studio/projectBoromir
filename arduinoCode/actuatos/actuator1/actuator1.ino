@@ -27,7 +27,23 @@ void setup() {
 
 }
 
+void fan_on()
+{
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA,255);
+}
+void fan_off()
+{
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA,0);
+}
+
 void loop() {
-  // put your main code here, to run repeatedly:
+  fan_on();
+  delay(1000);
+  fan_off();
+  delay(1000);
 
 }
