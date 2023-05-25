@@ -29,6 +29,7 @@
         return getRange(getPercentage(value))
     }
 </script>
+
 <div class="week">
     <svg width="100%" viewBox="0 0 369 228" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- <rect x="7.62939e-06" width="369" height="228" rx="9" fill="#0B2F36"/> -->

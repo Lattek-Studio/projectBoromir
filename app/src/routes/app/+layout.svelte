@@ -75,6 +75,13 @@
         display: flex;
         margin-bottom: 4rem;
     }
+    .nav > div:not(.title){
+        opacity: 0.5;
+    }
+    .nav > div.active{
+        /* border-bottom: 1px solid var(--accent); */
+        opacity: 1;
+    }
     .content{
         padding: 1rem;
     }
@@ -90,13 +97,13 @@
     .bar > .settings{
         display: none;
     }
-    img{
+    .nav > div{
         transition: all 0.2s ease-in-out;
     }
-    img:hover{
+    .nav > div:not(.title):hover{
         cursor: pointer;
         transform: scale(1.1);
-        opacity: 0.5;
+        opacity: 1;
     }
     @media (max-width: 600px){
         nav{
