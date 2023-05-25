@@ -1,0 +1,163 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.lattek.dust"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+8-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml
+10
+11    <meta-data
+11-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:31:5-72
+12        android:name="android.max_aspect"
+12-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:31:16-49
+13        android:value="2.1" />
+13-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:31:50-69
+14
+15    <!-- Permissions -->
+16
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:35:5-67
+17-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:35:22-64
+18
+19    <permission
+19-->[androidx.core:core:1.10.0] C:\Users\lazar\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:22:5-24:47
+20        android:name="org.lattek.dust.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.10.0] C:\Users\lazar\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.10.0] C:\Users\lazar\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="org.lattek.dust.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.10.0] C:\Users\lazar\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.10.0] C:\Users\lazar\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:3:5-30:19
+26        android:allowBackup="true"
+26-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:4:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.10.0] C:\Users\lazar\.gradle\caches\transforms-3\4084e7bcb4a1738e1ff26326a1997c6e\transformed\core-1.10.0\AndroidManifest.xml:28:18-86
+28        android:debuggable="true"
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:5:9-43
+30        android:label="@string/app_name"
+30-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:6:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:7:9-54
+32        android:supportsRtl="true"
+32-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:8:9-35
+33        android:theme="@style/AppTheme" >
+33-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:9:9-40
+34        <activity
+34-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:10:9-21:20
+35            android:name="org.lattek.dust.MainActivity"
+35-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:12:13-41
+36            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+36-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:11:13-129
+37            android:exported="true"
+37-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:16:13-36
+38            android:label="@string/title_activity_main"
+38-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:13:13-56
+39            android:launchMode="singleTask"
+39-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:15:13-44
+40            android:theme="@style/AppTheme.NoActionBarLaunch" >
+40-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:14:13-62
+41            <intent-filter>
+41-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:17:13-20:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:18:17-69
+42-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:18:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:19:17-77
+44-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:19:27-74
+45            </intent-filter>
+46        </activity>
+47
+48        <provider
+49            android:name="androidx.core.content.FileProvider"
+49-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:24:13-62
+50            android:authorities="org.lattek.dust.fileprovider"
+50-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:25:13-64
+51            android:exported="false"
+51-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:26:13-37
+52            android:grantUriPermissions="true" >
+52-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:27:13-47
+53            <meta-data
+53-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:28:13-112
+54                android:name="android.support.FILE_PROVIDER_PATHS"
+54-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:28:24-74
+55                android:resource="@xml/file_paths" />
+55-->C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\src\main\AndroidManifest.xml:28:75-109
+56        </provider>
+57        <provider
+57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+58            android:name="androidx.startup.InitializationProvider"
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+59            android:authorities="org.lattek.dust.androidx-startup"
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+60            android:exported="false" >
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+61            <meta-data
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+63                android:value="androidx.startup" />
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\lazar\.gradle\caches\transforms-3\bc4e404d2e4e27a8333e074e645fe6c4\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+64            <meta-data
+64-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lazar\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+65-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lazar\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+66                android:value="androidx.startup" />
+66-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\lazar\.gradle\caches\transforms-3\6965ddfd7c9bb67e76de74f23369d3cb\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+69                android:value="androidx.startup" />
+69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+70        </provider>
+71
+72        <receiver
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+73            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+74            android:directBootAware="false"
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+75            android:enabled="true"
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+76            android:exported="true"
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+77            android:permission="android.permission.DUMP" >
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+78            <intent-filter>
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+79                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+80            </intent-filter>
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+82                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+85                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+88                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\lazar\.gradle\caches\transforms-3\a916dcd0a76c646859857390ab72a1c7\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+89            </intent-filter>
+90        </receiver>
+91    </application>
+92
+93</manifest>

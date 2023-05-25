@@ -1,0 +1,13 @@
+{
+	"appId": "org.lattek.dust",
+	"appName": "LattekDust",
+	"webDir": "build",
+	"server": {
+		"androidScheme": "https"
+	},
+	"plugins": {
+		"StatusBar": {
+			"overlay": true
+		}
+	}
+}

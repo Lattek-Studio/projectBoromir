@@ -34,9 +34,9 @@
             <img src="/dashboard.png" alt="dashboard"/>
             <a href="/">Dashboard</a>
         </div>
-        <div class="{path=='/statistics'?'active':''} item" on:mousedown={()=>goto("/statistics")}>
-            <img src="/statistics.png" alt="statistics"/>
-            <a href="/statistics">Statistics</a>
+        <div class="{path=='/ranks'?'active':''} item" on:mousedown={()=>goto("/ranks")}>
+            <img src="/ranks.png" alt="ranks"/>
+            <a href="/ranks">Ranks</a>
         </div>
         <div class="{path=='/performance'?'active':''} item" on:mousedown={()=>goto("/performance")}>
             <img src="/performance.png" alt="performance"/>

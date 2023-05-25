@@ -1,0 +1,6 @@
+org.lattek.dust.test.app-annotation-experimental-1.3.0-0 C:\Users\lazar\.gradle\caches\transforms-3\c4eb8610416ba9fcff7203d70109fbae\transformed\annotation-experimental-1.3.0\res
+org.lattek.dust.test.app-core-1.5.0-1 C:\Users\lazar\.gradle\caches\transforms-3\ec985eb774b6e2f8fedbaa0cecaad627\transformed\core-1.5.0\res
+org.lattek.dust.test.app-androidTest-2 C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\build\generated\res\resValues\androidTest\debug
+org.lattek.dust.test.app-mergeDebugAndroidTestResources-3 C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+org.lattek.dust.test.app-mergeDebugAndroidTestResources-4 C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+org.lattek.dust.test.app-merged_res-5 C:\Users\lazar\Documents\GitHub\projectBoromir\dustapp\android\app\build\intermediates\merged_res\debugAndroidTest
