@@ -34,7 +34,7 @@ function getDate(timestamp) {
   const formattedDate = `${day.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year.toString().padStart(2, '0')}`;
   return formattedDate;
 }
-let selected = 0
+let selected = 49
 
 const minSize = 40
 const maxSize = 50
