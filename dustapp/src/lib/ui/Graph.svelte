@@ -51,8 +51,7 @@ function getSize(distance) {
     <p class="nr min">{minValue}</p>
     <p class="nr max">{maxValue}</p>
     <p class="nr average">{(maxValue + minValue) / 2}</p>
-    <svg width="370" height="240" viewBox="0 0 370 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0.5" width="369" height="240" rx="9" fill="#0B2F36"/>
+    <svg width="100%" viewBox="0 0 370 240" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.6">
         <path d="M46.5 87H327.5" stroke="#DFF8EB" stroke-linecap="round"/>
         <path d="M46.5 112H327.5" stroke="#DFF8EB" stroke-linecap="round"/>
@@ -107,6 +106,10 @@ function getSize(distance) {
 <style>
     section{
         position: relative;
+        background-color: var(--bgLight);
+        border-radius: 1rem;
+        width: clamp(200px, 90%, 600px);
+    
     }
     p{
         position: absolute;
