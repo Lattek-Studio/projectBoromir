@@ -35,7 +35,7 @@
     </div>
 <div class="buttons">
     {#each selections as selection, i}
-        <p class="tag {selected==i?'selected':''}" on:click={() => selected = i}>{selection.name}</p>
+        <div class="tag {selected==i?'selected':''}" on:click={() => selected = i}>{selection.name}</div>
     {/each}
 </div>
 
@@ -76,12 +76,37 @@
         white-space: nowrap;
         /* border-bottom: 0.25rem solid var(--accent); */
         font-weight: 700;
-
     }
 
+    /* width */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  transition: all 0.2s ease-in-out;
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+
     .buttons{
-        overflow-x: auto;
-        display: flex;
+        overflow: auto;
+        white-space: nowrap;
+        max-width: 400px;
+
     }
     .tag{
         background-color: var(--bgLight);
@@ -89,6 +114,8 @@
         border-radius: 69rem;
         border: 1px solid transparent;
         transition: all 0.2s ease-in-out;
+
+        display: inline-block;
     }
     .tag.selected{
         background-color: var(--bgDark);
