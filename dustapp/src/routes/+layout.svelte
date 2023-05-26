@@ -75,6 +75,7 @@
         border-right: 1px solid var(--gray);
         padding: 1rem 1.5rem;
         min-height: 100vh;
+        max-height: 100vh;
     }
     .title{
         display:flex;
@@ -114,6 +115,7 @@
     }
     .content{
         padding: 1rem;
+        max-height: calc(100vh - 4rem);
         overflow-y: auto;
     }
     .app{
@@ -181,5 +183,10 @@
         .item:not(.active) > a{
             display: none;
         }
+        .content{
+        padding: 1rem;
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+    }
     }
 </style>
