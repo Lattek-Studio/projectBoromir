@@ -130,5 +130,6 @@ export async function waitOneSecond(){
         data.PRESSURE_pascals = data.PRESSURE_pascals/1000
     })
     await waitOneSecond()
+    data.reverse()
     return data
   }
