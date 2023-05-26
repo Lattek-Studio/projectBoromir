@@ -119,7 +119,7 @@ void loop() {
   fan = downloaded_json["fan"];
   geam = downloaded_json["geam"];
 
-  if(downloaded_json["average_TEMP_celsius"]>32)
+  if(downloaded_json["average_TEMP_celsius"]>30)
   {
     curr_state_fan = 1;
   }
