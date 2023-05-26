@@ -1,4 +1,4 @@
-#Fri May 26 15:10:37 EEST 2023
+#Fri May 26 15:20:48 EEST 2023
 base.0=C\:\\Users\\lazar\\Documents\\GitHub\\projectBoromir\\dustapp\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\lazar\\Documents\\GitHub\\projectBoromir\\dustapp\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\lazar\\Documents\\GitHub\\projectBoromir\\dustapp\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
