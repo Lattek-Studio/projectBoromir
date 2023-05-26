@@ -120,6 +120,7 @@ export async function waitOneSecond(){
     const { data, error } = await supabase
     .from('dust_arch')
     .select('*')
+    .order('created_at', { ascending: false })
     .limit(100)
 
     if(error){
