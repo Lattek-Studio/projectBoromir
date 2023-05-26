@@ -108,7 +108,8 @@ function getData(selected){
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: white;
+  background: #ffffff10;
+  opacity: 0.4;
 }
 
 /* Handle */
