@@ -197,6 +197,5 @@ void loop() {
     Serial.println(response);
   }
   http.end();
-
-  delay(2000);
+  delay(1000);
 }
