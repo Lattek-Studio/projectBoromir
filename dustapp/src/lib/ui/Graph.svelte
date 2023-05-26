@@ -1,6 +1,6 @@
 <script>
     export let name = 'Carbon Dioxide'
-    export let day = '26.05.2023'
+    export let day = '27.05.2023'
     export let unit = 'ppm'
     export let data
 
@@ -25,7 +25,14 @@
   const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
   return formattedTime;
 }
-
+function getDate(timestamp) {
+  const date = new Date(timestamp);
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const formattedDate = `${day.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year.toString().padStart(2, '0')}`;
+  return formattedDate;
+}
 let selected = 0
 
 const minSize = 40
@@ -43,7 +50,7 @@ function getSize(distance) {
 <!-- {minValue} {maxValue}
 {data[0].created_at}
 {getHour(data[0].created_at)} -->
-
+<!-- {getDate(data[0].created_at)} -->
 <section>
     <input type="range" min="0" max="99" bind:value={selected} class="slider">
     <p class="title">{name} ({unit})</p>

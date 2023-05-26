@@ -135,7 +135,7 @@ function getData(selected){
         border-radius: 69rem;
         border: 1px solid transparent;
         transition: all 0.2s ease-in-out;
-
+        margin-inline: 0.25rem;
         display: inline-block;
     }
     .tag.selected{
