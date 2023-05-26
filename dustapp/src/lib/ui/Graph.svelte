@@ -28,12 +28,12 @@
 
 let selected = 0
 
-const minSize = 50
-const maxSize = 0
+const minSize = 40
+const maxSize = 50
 
 function getSize(distance) {
     // return 1 / (1 + Math.exp(-distance*2));
-    let unnormalized = 1 - (maxSize - minSize) / (maxValue - minValue) * (distance - minValue) + 6
+    let unnormalized = (maxSize - minSize) / (1000) * (distance - 10)
     //map from 0 to 1
     let nromalized = 1 / (1 + Math.exp(-unnormalized))
     return nromalized
@@ -83,12 +83,14 @@ function getSize(distance) {
 
         
         {#each data as _, i}
+        <line x1={getX(i)} y1={minY} x2={getX(i)} y2="1000" opacity="0" style="stroke:white;stroke-width:1" on:mouseover={()=>selected=i}/>
+
             {#if i == selected}
             <line x1={getX(i)} y1={minY} x2={getX(i)} y2={maxY} opacity="0.5" style="stroke:white;stroke-width:2" />
 
                 <circle cx={getX(i)} cy={getY(data[i].data)} r="2.5" fill="var(--accent)"/>
             {:else}
-                <circle cx={getX(i)} cy={getY(data[i].data)} r="2.5" fill="white"/>
+                <circle cx={getX(i)} cy={getY(data[i].data)} r="1" fill="white"/>
             {/if}
             {#if i != data.length - 1}
                 <line x1={getX(i)} y1={getY(data[i].data)} x2={getX(i+1)} y2={getY(data[i+1].data)} style="stroke:white;stroke-width:2" />
