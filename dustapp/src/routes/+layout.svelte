@@ -42,7 +42,7 @@
         </div>
         <div class="{path=='/stats'?'active':''} item" on:mousedown={()=>goto("/stats")}>
             <img src="/stats.png" alt="stats"/>
-            <a href="/stats">Stats</a>
+            <a href="/stats">Statistics</a>
         </div>
     </div>
     <div class="app">

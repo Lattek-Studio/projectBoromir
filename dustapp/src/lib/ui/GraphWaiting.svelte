@@ -97,9 +97,9 @@ onMount(()=>{
         <path d="M46.5 187H327.5" stroke="#DFF8EB" stroke-linecap="round"/>
         </g>
 
-        <circle cx="335" cy="34" r="2.5" fill="white"/>
+        <!-- <circle cx="335" cy="34" r="2.5" fill="white"/>
         <circle cx="343" cy="34" r="2.5" fill="white"/>
-        <circle cx="351" cy="34" r="2.5" fill="white"/>
+        <circle cx="351" cy="34" r="2.5" fill="white"/> -->
 
 
         
