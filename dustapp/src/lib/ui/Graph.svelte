@@ -90,7 +90,7 @@ function getSize(distance) {
 
         
         {#each data as _, i}
-        <line x1={getX(i)} y1={minY} x2={getX(i)} y2="1000" opacity="0" style="stroke:white;stroke-width:1" on:mouseover={()=>selected=i}/>
+        <line x1={getX(i)} y1={minY} x2={getX(i)} y2="1000" opacity="0" style="stroke:white;stroke-width:4" on:mouseover={()=>selected=i}/>
 
             {#if i == selected}
             <line x1={getX(i)} y1={minY} x2={getX(i)} y2={maxY} opacity="0.5" style="stroke:white;stroke-width:2" />
@@ -109,6 +109,7 @@ function getSize(distance) {
             <!-- {getHour(data[i].created_at)} -->
             {/if}
         {/each}
+        <circle cx={getX(selected)} cy={getY(data[selected].data)} r="2.5" fill="var(--accent)"/>
     </svg>
 </section>
     
