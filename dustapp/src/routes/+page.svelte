@@ -3,39 +3,65 @@
 	import { dbStore } from '$lib/stores/db'
     import { sensorsStore, furnitureStore } from '$lib/supabase';
     import { onMount, onDestroy } from 'svelte';
-    export let data = 0;
+    export let data = {};
     let dataInterval
+    let aqi = '?'
     onMount(()=>{
         dataInterval = sensorsStore.subscribe((curr)=>{
         let temp = curr;
         data = {
             'Carbon Dioxide': {
                 value: temp.CO2_ppm,
-                unit: 'ppm'
+                unit: 'ppm',
+                state: temp.CO2_ppm > 2000 ? 'on' : 'off'
             },
             'Temperature': {
                 value: temp.average_TEMP_celsius,
-                unit: '°C'
+                unit: '°C',
+                state: temp.average_TEMP_celsius > 30 ? 'on' : 'off'
             },
             'Humidity': {
                 value: temp.HUMIDITY_percent,
-                unit: '%'
+                unit: '%',
+                state: temp.HUMIDITY_percent > 60 ? 'on' : 'off'
             },
             'Pressure': {
                 value: temp.PRESSURE_pascals?.toFixed(0),
-                unit: 'Pa'
+                unit: 'Pa',
+                state: 'off'
             },
             'TVOC': {
                 value: temp.TVOC_ppb,
-                unit: 'ppb'
+                unit: 'ppb',
+                state: 'off'
             }
+        }
+        if(temp.aqi != 'undefined'){
+            aqi = temp.aqi
         }
     });
     return dataInterval;
     })
     onDestroy(() => { 
-        data = 0;
+        data = {};
     })
+    function getWord(aqi){
+        if(aqi > 300){
+            return 'hazardous'
+        }
+        if(aqi > 200){
+            return 'very unhealthy'
+        }
+        if(aqi > 150){
+            return 'unhealthy'
+        }
+        if(aqi > 100){
+            return 'unhealthy for sensitive groups'
+        }
+        if(aqi > 50){
+            return 'moderate'
+        }
+    }
 
 </script>
 <div class="container">
@@ -45,24 +71,22 @@
         </svg>
         <div class="text">
             <h1 class="aqi">aqi</h1>
-            <h1 class="value">169</h1>
+            <h1 class="value">{aqi}</h1>
             <h1 class="sms">unhealthy</h1>
         </div>
     </div>
 
-    {#if data != 0}
-        <div class="items">
-            {#each Object.entries(data) as [type, value]}
-                <Tab name={type} value={value} />
-            {/each}
-        </div>
-    {:else}
-            <p>Loading...</p>
-    {/if}
+    
+    <div class="items">
+        {#each Object.entries(data) as [type, value]}
+            <Tab name={type} value={value} state={value.state} />
+        {/each}
+    </div>
+   
 
     <div class="buttons">
         <div class="button">
-            <p>Geam</p>
+            <p>Win.</p>
             <Switch bind:checked={$furnitureStore.geam}/>
         </div>
         <div class="button">
@@ -119,8 +143,8 @@
     }
     .button{
         display:flex;
-        place-content: center;
         align-items: center;
+        justify-content: center;
         gap: 1rem;
     }
 </style>
