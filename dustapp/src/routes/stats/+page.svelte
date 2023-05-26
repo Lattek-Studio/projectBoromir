@@ -121,7 +121,7 @@ function getData(selected){
     .buttons{
         overflow: auto;
         white-space: nowrap;
-        max-width: 400px;
+        max-width: min(90vw, 400px);
 
     }
     .tag{
