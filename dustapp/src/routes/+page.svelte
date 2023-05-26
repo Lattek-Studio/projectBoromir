@@ -89,6 +89,7 @@
     }
     .circle{
         position: relative;
+        margin-bottom: 1rem;
     }
     .text{
         position:absolute;
