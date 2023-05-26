@@ -4,6 +4,7 @@
     export let unit = 'ppm'
     export let data
 
+    
     const minX = 47
     const maxX = 325
     const minY = 87

@@ -35,15 +35,11 @@
         code: 'TVOC_ppb'
     }
    ]
-   let stash = []
-async function getData(selected){
-    let all
-    if(stash.length == 0){
-        all = await getAllData()
-        stash = all
-    }else{
-        all = stash
-    }
+
+   async function getAll(){
+        return await getAllData()
+   }
+function getData(all, selected){
     const info = all.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))
     if(selections[selected].name == "Pressure"){
         info.forEach((item) => {
@@ -52,8 +48,8 @@ async function getData(selected){
     }
     return info
 }
-let promise
-$: promise = getData(selected)
+let promise = getAll()
+// $: data = getData(selected)
 
 </script>
 <!-- {JSON.stringify(data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))[0])} -->
@@ -75,7 +71,7 @@ $: promise = getData(selected)
 {#await promise}
     <GraphWaiting name={selections[selected].name} unit={selections[selected].unit}/>
 {:then data}
-    <Graph name={selections[selected].name} unit={selections[selected].unit} {data}/>
+    <Graph name={selections[selected].name} unit={selections[selected].unit} data={getData(data, selected)}/>
 {/await}
 
 </div>
