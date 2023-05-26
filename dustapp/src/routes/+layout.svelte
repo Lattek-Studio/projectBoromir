@@ -38,9 +38,9 @@
             <img src="/ranks.png" alt="ranks"/>
             <a href="/ranks">Ranks</a>
         </div>
-        <div class="{path=='/performance'?'active':''} item" on:mousedown={()=>goto("/performance")}>
-            <img src="/performance.png" alt="performance"/>
-            <a href="/performance">Performance</a>
+        <div class="{path=='/stats'?'active':''} item" on:mousedown={()=>goto("/stats")}>
+            <img src="/stats.png" alt="stats"/>
+            <a href="/stats">Stats</a>
         </div>
     </div>
     <div class="app">

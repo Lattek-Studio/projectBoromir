@@ -110,4 +110,15 @@ const channel = supabase
   .subscribe()
 
 
-  
+  export async function getAllData(){
+    const { data, error } = await supabase
+    .from('dust_arch')
+    .select('*')
+    .limit(100)
+
+    if(error){
+        throw(error)
+    }
+
+    return data
+  }

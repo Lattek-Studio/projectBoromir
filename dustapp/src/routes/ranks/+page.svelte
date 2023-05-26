@@ -48,11 +48,11 @@
         </div>
     </div>
 
-    <Week values={[0, 1, 2, 3, 4, 5, 6]}/>
+    <Week values={[123, 168, 200, 268, 105, 164, 0]}/>
 
     <div class="ranks">
-        <h1>day #556</h1>
-        <h1>week #216</h1>
+        <h1>day #56</h1>
+        <h1>week #26</h1>
     </div>
 </div>
 
