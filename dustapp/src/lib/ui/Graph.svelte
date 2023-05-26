@@ -196,11 +196,16 @@ circle{
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 5px; /* Set a specific slider handle width */
+  height: 5px; /* Slider handle height */
+  background: var(--accent); /* Green background */
   cursor: pointer; /* Cursor on hover */
+  border-radius: 1rem;
+
 }
+
 
 .hover{
     cursor: pointer;
