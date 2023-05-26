@@ -23,7 +23,7 @@ export let data
     },
     {
         name: 'Pressure',
-        unit: 'Pa',
+        unit: 'hPa',
         code: 'PRESSURE_pascals'
     },
     {
@@ -34,6 +34,11 @@ export let data
    ]
 function getData(selected){
     const info = data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))
+    if(selections[selected].name == "Pressure"){
+        info.forEach((item) => {
+            item.data = item.data.toFixed(2)
+        })
+    }
     return info
 }
 </script>

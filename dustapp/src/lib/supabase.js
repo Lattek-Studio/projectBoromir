@@ -119,6 +119,8 @@ const channel = supabase
     if(error){
         throw(error)
     }
-
+data.map((data)=>{
+    data.PRESSURE_pascals = data.PRESSURE_pascals/1000
+})
     return data
   }

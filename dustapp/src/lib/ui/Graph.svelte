@@ -50,7 +50,7 @@ function getSize(distance) {
     <p class="date">{day}</p>
     <p class="nr min">{minValue}</p>
     <p class="nr max">{maxValue}</p>
-    <p class="nr average">{(maxValue + minValue) / 2}</p>
+    <p class="nr average">{((maxValue + minValue) / 2).toFixed(name=="Humidity"?1:name=='Carbon Dioxide'||name=='TVOC'?0:2)}</p>
     <svg width="100%" viewBox="0 0 370 240" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.6">
         <path d="M46.5 87H327.5" stroke="#DFF8EB" stroke-linecap="round"/>
