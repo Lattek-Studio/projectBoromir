@@ -134,6 +134,7 @@ function getSize(distance) {
         position: absolute;
         margin: 0;
         padding: 0;
+        font-size: 0.75rem;
     }
     .title{
         top: 10%;
