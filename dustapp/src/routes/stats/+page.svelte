@@ -1,9 +1,12 @@
 <script>
-    import { Tab, Switch, Week, Graph } from '$ui'
+    import { Tab, Switch, Week, Graph, GraphWaiting } from '$ui'
 	import { dbStore } from '$lib/stores/db'
     import { sensorsStore, furnitureStore } from '$lib/supabase';
     import { onMount, onDestroy } from 'svelte';
-export let data
+    import { getAllData, waitOneSecond } from '$lib/supabase';
+  import { json } from '@sveltejs/kit';
+    export let data
+    
     let selected = 0
    const selections = [
     {
@@ -32,8 +35,16 @@ export let data
         code: 'TVOC_ppb'
     }
    ]
-function getData(selected){
-    const info = data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))
+   let stash = []
+async function getData(selected){
+    let all
+    if(stash.length == 0){
+        all = await getAllData()
+        stash = all
+    }else{
+        all = stash
+    }
+    const info = all.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))
     if(selections[selected].name == "Pressure"){
         info.forEach((item) => {
             item.data = item.data.toFixed(2)
@@ -41,6 +52,9 @@ function getData(selected){
     }
     return info
 }
+let promise
+$: promise = getData(selected)
+
 </script>
 <!-- {JSON.stringify(data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))[0])} -->
 <div class="container">
@@ -58,7 +72,11 @@ function getData(selected){
     {/each}
 </div>
 <br>
-<Graph name={selections[selected].name} unit={selections[selected].unit} data={getData(selected)}/>
+{#await promise}
+    <GraphWaiting name={selections[selected].name} unit={selections[selected].unit}/>
+{:then data}
+    <Graph name={selections[selected].name} unit={selections[selected].unit} {data}/>
+{/await}
 
 </div>
 

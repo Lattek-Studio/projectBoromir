@@ -109,7 +109,13 @@ const channel = supabase
   )
   .subscribe()
 
-
+export async function waitOneSecond(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 1000);
+  });
+}
   export async function getAllData(){
     const { data, error } = await supabase
     .from('dust_arch')
@@ -119,8 +125,9 @@ const channel = supabase
     if(error){
         throw(error)
     }
-data.map((data)=>{
-    data.PRESSURE_pascals = data.PRESSURE_pascals/1000
-})
+    data.map((data)=>{
+        data.PRESSURE_pascals = data.PRESSURE_pascals/1000
+    })
+    await waitOneSecond()
     return data
   }
