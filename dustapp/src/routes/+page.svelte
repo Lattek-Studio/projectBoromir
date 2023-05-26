@@ -38,6 +38,7 @@
         }
         if(typeof temp.aqi == 'number'){
             aqi = temp.aqi
+            aqi = 154
         }
     });
     return dataInterval;
@@ -53,39 +54,35 @@
         // Change the value of the --accent CSS variable
         rootElement.style.setProperty('--accent', color);
     }
+        
     function getWord(aqi) {
-        if (typeof aqi !== 'number') {
-            setRootColor('var(--defaultAccent)');
-            return '...';
-        }
+    if (typeof aqi !== 'number') {
+        setRootColor('var(--defaultAccent)'); // Set color for unknown, same as "Good" and "Moderate"
+        return '...';
+    }
 
-        if (aqi > 300) {
-            setRootColor('#FF0000'); // Set color for hazardous
-            return 'hazardous';
-        }
+    if (aqi > 300) {
+        setRootColor('#990000'); // Set color for hazardous
+        return 'hazardous';
+    }
 
-        if (aqi > 200) {
-            setRootColor('#990000'); // Set color for very unhealthy
-            return 'very unhealthy';
-        }
+    if (aqi > 200) {
+        setRootColor('#FF0000'); // Set color for very unhealthy
+        return 'very unhealthy';
+    }
 
-        if (aqi > 150) {
-            setRootColor('#FF715B'); // Set color for unhealthy
-            return 'unhealthy';
-        }
+    if (aqi > 150) {
+        setRootColor('#FF00ff'); // Set color for unhealthy
+        return 'unhealthy';
+    }
 
-        if (aqi > 100) {
-            setRootColor('#FF715B'); // Set color for sensitive
-            return 'sensitive';
-        }
+    if (aqi > 100) {
+        setRootColor('#FFD700'); // Set color for sensitive
+        return 'sensitive';
+    }
 
-        if (aqi > 50) {
-            setRootColor('#FF715B'); // Set color for moderate
-            return 'moderate';
-        }
-
-        setRootColor('#FF715B'); // Set color for good
-        return 'good';
+    setRootColor('var(--defaultAccent)'); // Set color for moderate, same as "Good" and "Unknown"
+    return 'moderate';
     }
 
 </script>
