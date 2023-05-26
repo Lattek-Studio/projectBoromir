@@ -36,7 +36,7 @@
                 state: 'off'
             }
         }
-        if(temp.aqi != 'undefined'){
+        if(typeof temp.aqi == 'number'){
             aqi = temp.aqi
         }
     });
@@ -46,6 +46,9 @@
         data = {};
     })
     function getWord(aqi){
+        if(typeof aqi != 'number'){
+            return '...'
+        }
         if(aqi > 300){
             return 'hazardous'
         }
@@ -56,11 +59,12 @@
             return 'unhealthy'
         }
         if(aqi > 100){
-            return 'unhealthy for sensitive groups'
+            return 'sensitive'
         }
         if(aqi > 50){
             return 'moderate'
         }
+        return 'good'
     }
 
 </script>
@@ -72,7 +76,7 @@
         <div class="text">
             <h1 class="aqi">aqi</h1>
             <h1 class="value">{aqi}</h1>
-            <h1 class="sms">unhealthy</h1>
+            <h1 class="sms">{getWord(aqi)}</h1>
         </div>
     </div>
 
@@ -135,6 +139,7 @@
     .sms{
         font-size: 1.5rem;
         font-weight: 300;
+        white-space: nowrap
     }
 
     .buttons{
