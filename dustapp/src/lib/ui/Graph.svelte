@@ -120,6 +120,9 @@ function getSize(distance) {
 </section>
     
 <style>
+    *{
+        transition: none;
+    }
     section{
         position: relative;
         background-color: var(--bgLight);
@@ -153,7 +156,7 @@ function getSize(distance) {
         left: 1.5%;
     }
 circle.accent{
-    transition: all 1s ease-in-out;
+    transition: all 0s ease-in-out;
 }
 circle{
     transition: all 1s ease-in-out;
