@@ -31,6 +31,7 @@
 		"@capacitor/status-bar": "^5.0.2",
 		"@supabase/supabase-js": "^2.22.0",
 		"@sveltejs/adapter-static": "^2.0.2",
+		"@sveltejs/adapter-node": "^2.0.2",
 		"firebase": "^9.22.0"
 	}
 }
