@@ -38,7 +38,6 @@
         }
         if(typeof temp.aqi == 'number'){
             aqi = temp.aqi
-            aqi = 154
         }
     });
     return dataInterval;
