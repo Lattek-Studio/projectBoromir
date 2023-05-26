@@ -1,29 +1,43 @@
 <script>
-    import { Tab, Switch, Week } from '$ui'
+    import { Tab, Switch, Week, Graph } from '$ui'
 	import { dbStore } from '$lib/stores/db'
     import { sensorsStore, furnitureStore } from '$lib/supabase';
     import { onMount, onDestroy } from 'svelte';
-
+export let data
     let selected = 0
    const selections = [
     {
         name: 'Carbon Dioxide',
+        unit: 'ppm',
+        code: 'CO2_ppm'
     },
     {
         name: 'Temperature',
+        unit: '°C',
+        code: 'average_TEMP_celsius'
     },
     {
         name: 'Humidity',
+        unit: '%',
+        code: 'HUMIDITY_percent'
     },
     {
         name: 'Pressure',
+        unit: 'Pa',
+        code: 'PRESSURE_pascals'
     },
     {
         name: 'TVOC',
+        unit: 'ppb',
+        code: 'TVOC_ppb'
     }
    ]
-
+function getData(selected){
+    const info = data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))
+    return info
+}
 </script>
+{JSON.stringify(data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))[0])}
 <div class="container">
     <div class="circle">
         <svg width="274" height="234" viewBox="0 0 274 234" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +52,8 @@
         <div class="tag {selected==i?'selected':''}" on:click={() => selected = i}>{selection.name}</div>
     {/each}
 </div>
+
+<Graph name={selections[selected].name} unit={selections[selected].unit} data={getData(selected)}/>
 
 </div>
 
