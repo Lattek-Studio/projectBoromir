@@ -110,6 +110,11 @@ function getSize(distance) {
             {/if}
         {/each}
         <circle cx={getX(selected)} cy={getY(data[selected].data)} r="2.5" fill="var(--accent)"/>
+
+        {#each data as _, i}
+        <line x1={getX(i)} y1={minY} x2={getX(i)} y2="1000" opacity="0" style="stroke:white;stroke-width:4" on:mouseover={()=>selected=i}/>
+        
+        {/each}
     </svg>
 </section>
     
