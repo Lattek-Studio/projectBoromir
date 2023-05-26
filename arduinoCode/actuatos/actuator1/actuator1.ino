@@ -141,5 +141,7 @@ void loop() {
   Serial.println(fan);
   Serial.println(geam);
 
+  
+
   delay(8000);
 }
