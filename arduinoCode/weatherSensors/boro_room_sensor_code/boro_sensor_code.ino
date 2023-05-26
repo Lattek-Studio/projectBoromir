@@ -6,8 +6,8 @@
 #include <ArduinoJson.hpp>
 
 //network configs
-const char* ssid = "500102 2.4g";
-const char* pass = "galati1923";
+const char* ssid = "OUR internet";
+const char* pass = "3.6 roentgen";
 
 //Sensor lib configs
 #include <SparkFunCCS811.h>
