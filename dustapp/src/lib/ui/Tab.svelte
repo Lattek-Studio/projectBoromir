@@ -4,9 +4,10 @@
         value: 0,
         unit: "ppm"
     };
+    export let state = "off"
 </script>
 {#if value.value != undefined}
-<div class="container">
+<div class="container" style="--bg: {state=="on"?'var(--accent)':'var(--bgLight)'}">
     <span class="title">{name}</span>
     <span class="value">{value.value}{value.unit}</span>
 </div>
@@ -18,13 +19,14 @@
 {/if}
 <style>
     .container{
-        background-color: var(--bgLight);
+        background-color: var(--bg);
         border-radius: 69rem;
         display:flex;
         gap: 1rem;
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        transition: all 1.5s ease-in-out;
     }
     span{
         padding: 1rem;

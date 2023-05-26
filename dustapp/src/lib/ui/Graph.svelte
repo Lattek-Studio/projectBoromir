@@ -1,9 +1,10 @@
 <script>
     export let name = 'Carbon Dioxide'
-    export let day = '26.05.2023'
+    export let day = '27.05.2023'
     export let unit = 'ppm'
     export let data
 
+    
     const minX = 47
     const maxX = 325
     const minY = 87
@@ -25,15 +26,22 @@
   const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
   return formattedTime;
 }
-
+function getDate(timestamp) {
+  const date = new Date(timestamp);
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const formattedDate = `${day.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year.toString().padStart(2, '0')}`;
+  return formattedDate;
+}
 let selected = 0
 
-const minSize = 50
-const maxSize = 0
+const minSize = 40
+const maxSize = 50
 
 function getSize(distance) {
     // return 1 / (1 + Math.exp(-distance*2));
-    let unnormalized = 1 - (maxSize - minSize) / (maxValue - minValue) * (distance - minValue) + 6
+    let unnormalized = (maxSize - minSize) / (1000) * (distance - 10)
     //map from 0 to 1
     let nromalized = 1 / (1 + Math.exp(-unnormalized))
     return nromalized
@@ -43,14 +51,14 @@ function getSize(distance) {
 <!-- {minValue} {maxValue}
 {data[0].created_at}
 {getHour(data[0].created_at)} -->
-
+<!-- {getDate(data[0].created_at)} -->
 <section>
     <input type="range" min="0" max="99" bind:value={selected} class="slider">
     <p class="title">{name} ({unit})</p>
     <p class="date">{day}</p>
     <p class="nr min">{minValue}</p>
     <p class="nr max">{maxValue}</p>
-    <p class="nr average">{(maxValue + minValue) / 2}</p>
+    <p class="nr average">{((maxValue + minValue) / 2).toFixed(name=="Humidity"?1:name=='Carbon Dioxide'||name=='TVOC'?0:2)}</p>
     <svg width="100%" viewBox="0 0 370 240" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.6">
         <path d="M46.5 87H327.5" stroke="#DFF8EB" stroke-linecap="round"/>
@@ -83,12 +91,14 @@ function getSize(distance) {
 
         
         {#each data as _, i}
+        <line x1={getX(i)} y1={minY} x2={getX(i)} y2="1000" opacity="0" style="stroke:white;stroke-width:4" on:mouseover={()=>selected=i}/>
+
             {#if i == selected}
             <line x1={getX(i)} y1={minY} x2={getX(i)} y2={maxY} opacity="0.5" style="stroke:white;stroke-width:2" />
 
-                <circle cx={getX(i)} cy={getY(data[i].data)} r="2.5" fill="var(--accent)"/>
+                <circle cx={getX(i)} cy={getY(data[i].data)} r="2.5" fill="var(--accent)" class="accent"/>
             {:else}
-                <circle cx={getX(i)} cy={getY(data[i].data)} r="2.5" fill="white"/>
+                <circle cx={getX(i)} cy={getY(data[i].data)} r="1" fill="white"/>
             {/if}
             {#if i != data.length - 1}
                 <line x1={getX(i)} y1={getY(data[i].data)} x2={getX(i+1)} y2={getY(data[i+1].data)} style="stroke:white;stroke-width:2" />
@@ -100,10 +110,19 @@ function getSize(distance) {
             <!-- {getHour(data[i].created_at)} -->
             {/if}
         {/each}
+        <circle cx={getX(selected)} cy={getY(data[selected].data)} r="2.5" fill="var(--accent)" class="accent"/>
+
+        {#each data as _, i}
+        <line x1={getX(i)} y1={minY} x2={getX(i)} y2="1000" opacity="0" style="stroke:white;stroke-width:4" on:mouseover={()=>selected=i}/>
+        
+        {/each}
     </svg>
 </section>
     
 <style>
+    *{
+        transition: none;
+    }
     section{
         position: relative;
         background-color: var(--bgLight);
@@ -136,8 +155,12 @@ function getSize(distance) {
     .nr{
         left: 1.5%;
     }
-
-
+circle.accent{
+    transition: all 0s ease-in-out;
+}
+circle{
+    transition: all 1s ease-in-out;
+}
     /* The slider itself */
 .slider {
     all: unset;
