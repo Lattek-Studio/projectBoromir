@@ -37,7 +37,7 @@ function getData(selected){
     return info
 }
 </script>
-{JSON.stringify(data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))[0])}
+<!-- {JSON.stringify(data.data.map(({ created_at, [selections[selected].code] : value }) => ({ created_at, data: value }))[0])} -->
 <div class="container">
     <div class="circle">
         <svg width="274" height="234" viewBox="0 0 274 234" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@ function getData(selected){
         <div class="tag {selected==i?'selected':''}" on:click={() => selected = i}>{selection.name}</div>
     {/each}
 </div>
-
+<br>
 <Graph name={selections[selected].name} unit={selections[selected].unit} data={getData(selected)}/>
 
 </div>
