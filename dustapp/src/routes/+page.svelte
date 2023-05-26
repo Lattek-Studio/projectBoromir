@@ -79,9 +79,13 @@
         setRootColor('#FFD700'); // Set color for sensitive
         return 'sensitive';
     }
+    if (aqi > 50) {
+        setRootColor('#FFD700'); // Set color for sensitive
+        return 'moderate';
+    }
 
     setRootColor('var(--defaultAccent)'); // Set color for moderate, same as "Good" and "Unknown"
-    return 'moderate';
+    return 'good';
     }
 
 </script>
