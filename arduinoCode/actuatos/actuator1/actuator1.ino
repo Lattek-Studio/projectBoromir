@@ -19,9 +19,12 @@ const char* bearer_key = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgIC
 const char* id_rt = "2"; //1 = weather station; 2 = room sensor 
 
 //json for caching data
-const int capacity = JSON_OBJECT_SIZE(10);
-StaticJsonDocument<capacity> wthr_data;
-String serial_json;
+const int capacity = JSON_OBJECT_SIZE(10) + 256;
+StaticJsonDocument<capacity> downloaded_json;
+StaticJsonDocument<capacity> modded_json;
+String response;
+
+bool fan, geam;
 
 //DC Pins
 #define ENA D3
@@ -61,6 +64,8 @@ void setup() {
   myservo.attach(PWM_SERVO);
   myservo.write(0);
 
+  const size_t capaciti = JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(12) + 200;
+  DynamicJsonDocument downloaded_json(capaciti);
 }
 
 void fan_on()
@@ -77,7 +82,7 @@ void fan_off()
 }
 
 void loop() {
-  //Update realtime db ----------------------------
+  //Get values from realtime db ----------------------------
   HTTPClient http;
   WiFiClientSecure client;
   client.setInsecure();
@@ -94,7 +99,8 @@ void loop() {
   // check if the request was successful
   if (httpResponseCode > 0) {
     Serial.printf("HTTP response code: %d\n", httpResponseCode);
-    String response = http.getString();
+    response = http.getString();
+    response = response.substring(1, response.length() - 1);
     Serial.println(response);
   } else {
     Serial.println("Error sending PUT request");
@@ -106,7 +112,34 @@ void loop() {
   // disconnect from the server
   http.end();
 
+  DeserializationError error = deserializeJson(downloaded_json, response);
+
+  if (error) {
+    Serial.print("JSON deserialization failed: ");
+    Serial.println(error.c_str());
+  }
+  fan = downloaded_json["fan"];
+  geam = downloaded_json["geam"];
+
+  if(fan)
+  {
+    fan_on();
+  }
+  else
+  {
+    fan_off();
+  }
+
+  if(geam){
+    myservo.write(90);
+  }
+  else
+  {
+    myservo.write(0);
+  }
+
+  Serial.println(fan);
+  Serial.println(geam);
 
   delay(8000);
-
 }
