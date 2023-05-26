@@ -6,8 +6,8 @@
 #include <ArduinoJson.hpp>
 
 //network configs
-const char* ssid = "500102 2.4g";
-const char* pass = "galati1923";
+const char* ssid = "OUR internet";
+const char* pass = "3.6 roentgen";
 
 //db config
 // Supabase API endpoint and key
@@ -25,6 +25,7 @@ StaticJsonDocument<capacity> modded_json;
 String response;
 
 bool fan, geam;
+bool prev_state_fan, prev_state_geam, curr_state_fan, curr_state_geam;
 
 //DC Pins
 #define ENA D3
@@ -109,9 +110,6 @@ void loop() {
     Serial.println(response);
   }
 
-  // disconnect from the server
-  http.end();
-
   DeserializationError error = deserializeJson(downloaded_json, response);
 
   if (error) {
@@ -121,6 +119,38 @@ void loop() {
   fan = downloaded_json["fan"];
   geam = downloaded_json["geam"];
 
+  if(downloaded_json["average_TEMP_celsius"]>32)
+  {
+    curr_state_fan = 1;
+  }
+  else
+  {
+    curr_state_fan = 0;
+  }
+  if(downloaded_json["CO2_ppm"]>2000 || downloaded_json["HUMIDITY_percent"]>70)
+  {
+    curr_state_geam = 1;
+  }
+  else
+  {
+    curr_state_geam = 0;
+  }
+
+
+  if(prev_state_fan != curr_state_fan)
+  {
+    fan = curr_state_fan;
+    prev_state_fan = fan;
+  }
+  
+
+  if(prev_state_geam != curr_state_geam)
+  {
+    geam = curr_state_geam;
+    prev_state_geam = geam;
+  }
+
+  //switch actual states
   if(fan)
   {
     fan_on();
@@ -138,10 +168,35 @@ void loop() {
     myservo.write(0);
   }
 
-  Serial.println(fan);
-  Serial.println(geam);
+  //values to return in db
+  modded_json["fan"] = fan;
+  modded_json["geam"] = geam;
 
-  
 
-  delay(8000);
+  //set values in db to actual values
+  String payload;
+  serializeJson(modded_json,payload);
+  serializeJsonPretty(modded_json,Serial);
+
+
+  http.begin(client, url_str);
+  http.addHeader("Content-Type", "application/json");
+  http.addHeader("apikey", supabaseKey);
+  http.addHeader("Authorization", bearer_key);
+  httpResponseCode = http.sendRequest("PATCH",payload);
+
+  // check if the request was successful
+  if (httpResponseCode > 0) {
+    Serial.printf("HTTP response code: %d\n", httpResponseCode);
+    String response = http.getString();
+    Serial.println(response);
+  } else {
+    Serial.println("Error sending PUT request");
+    Serial.printf("HTTP response code: %d\n", httpResponseCode);
+    String response = http.getString();
+    Serial.println(response);
+  }
+  http.end();
+
+  delay(2000);
 }
