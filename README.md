@@ -1,8 +1,8 @@
-PENTRU DOCUMENTAȚIA COMPLET: [Lattek Docs]([https://duckduckgo.com](https://docs.google.com/document/d/1-81m-K6sQDu1P-6rrh9l-CgVxX6aWneMaXuvqu2jdrg/edit?usp=sharing))
+PENTRU DOCUMENTAȚIA COMPLET: [Lattek Docs]([https://duckduckgo.com](https://docs.google.com/document/d/1-81m-K6sQDu1P-6rrh9l-CgVxX6aWneMaXuvqu2jdrg/edit?usp=sharing)
 
 
 
-**Lattek Dust **
+**Lattek Dust**
 
 **Participanți:**
 
@@ -18,7 +18,7 @@ Balacea Georgeta
 
 **InfoEducație 2023**
 
-**Lattek Dust **
+**Lattek Dust**
 
 
 **Prezentare generală**
@@ -106,7 +106,7 @@ Codul aplicației este disponibil **https://github.com/Lattek-Studio/projectBoro
 
 **Supabase**
 
-**	Supabase **este o alternativă a Firebase dezvoltată de comunitatea **open-source**. Pe lângă posibilitatea de a cumpăra un pachet găzduit la ei care e similar în preț cu Firebase,  mai există si cea de a-l hosta singuri.
+**Supabase**este o alternativă a Firebase dezvoltată de comunitatea **open-source**. Pe lângă posibilitatea de a cumpăra un pachet găzduit la ei care e similar în preț cu Firebase,  mai există si cea de a-l hosta singuri.
 
 De ce **Supabase**?
 
