@@ -106,7 +106,7 @@ Codul aplicației este disponibil **https://github.com/Lattek-Studio/projectBoro
 
 **Supabase**
 
-**Supabase**este o alternativă a Firebase dezvoltată de comunitatea **open-source**. Pe lângă posibilitatea de a cumpăra un pachet găzduit la ei care e similar în preț cu Firebase,  mai există si cea de a-l hosta singuri.
+   Supabase este o alternativă a Firebase dezvoltată de comunitatea **open-source**. Pe lângă posibilitatea de a cumpăra un pachet găzduit la ei care e similar în preț cu Firebase,  mai există si cea de a-l hosta singuri.
 
 De ce **Supabase**?
 
