@@ -1,4 +1,4 @@
-PENTRU DOCUMENTAȚIA COMPLET: [Lattek Docs]([https://duckduckgo.com](https://docs.google.com/document/d/1-81m-K6sQDu1P-6rrh9l-CgVxX6aWneMaXuvqu2jdrg/edit?usp=sharing)
+PENTRU DOCUMENTAȚIA COMPLET: [Lattek Docs](https://docs.google.com/document/d/1-81m-K6sQDu1P-6rrh9l-CgVxX6aWneMaXuvqu2jdrg/edit?usp=sharing)
 
 
 
