@@ -1,52 +1,5 @@
-<!-----
+PENTRU DOCUMENTAȚIA COMPLET: [Lattek Docs]([https://duckduckgo.com](https://docs.google.com/document/d/1-81m-K6sQDu1P-6rrh9l-CgVxX6aWneMaXuvqu2jdrg/edit?usp=sharing))
 
-You have some errors, warnings, or alerts. If you are using reckless mode, turn it off to see inline alerts.
-* ERRORs: 0
-* WARNINGs: 1
-* ALERTS: 12
-
-Conversion time: 3.078 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β34
-* Wed Jul 05 2023 23:05:47 GMT-0700 (PDT)
-* Source doc: InfoEducatie
-* Tables are currently converted to HTML tables.
-
-WARNING:
-Inline drawings not supported: look for ">>>>>  gd2md-html alert:  inline drawings..." in output.
-
-* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
-
------>
-
-
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 1; ALERTS: 12.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-<a href="#gdcalert8">alert8</a>
-<a href="#gdcalert9">alert9</a>
-<a href="#gdcalert10">alert10</a>
-<a href="#gdcalert11">alert11</a>
-<a href="#gdcalert12">alert12</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
 
 
 **Lattek Dust **
@@ -66,11 +19,6 @@ Balacea Georgeta
 **InfoEducație 2023**
 
 **Lattek Dust **
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
 
 
 **Prezentare generală**
@@ -118,56 +66,13 @@ pentru a oferi o soluție specializată, asemenea unui sistem **IoT** complex. A
 </table>
 
 
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
-
 Pentru a eficientiza organizarea pe parcursul proiectului am decis să folosim soluția furnizată de **Github **pentru gestionarea sarcinilor de lucru numită generic **Kanban**. Astfel există o evidență clară a timpului consumat pentru fiecare task. De asemenea. cunoaștem stadiul de execuție pentru fiecare dintre acestea.
 
 **Plan de dezvoltare **
 
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
 **Sistem de versionare**
 
 Ca sistem de versionare am ales **Git** prin **Github**, oferit de **Microsoft **și cel mai popular astfel de serviciu. Am lucrat într-un repository pe organizația **Lattek-Studio** unde am putut crea un **proiect Kanban** și un github actions runner pentru builduirea și deploymentul siteului și al aplicației.
-
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
-Repository
-
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
-
-
-Organizația
-
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.png "image_tooltip")
-
-
-Runner
 
 Codul aplicației este disponibil **https://github.com/Lattek-Studio/projectBoromir**
 
@@ -354,15 +259,6 @@ De ce am ales **SvelteKit**?
 3. Cu ajutorul lui** Capacitor.js** traducem codul html, javascript si css în cod specific dispozitivului țintă (pentru Android codul de Javascript e tradus în Kotlin). 
 4. Folosind Android Studio construim aplicația nativă.
 
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
-
-
 **Interfață**
 
 Am ales un model de design minimalist pentru a fi utilizat de oricine. Am ales o paletă de culori simplă formată din 2 culori de fundal (una mai închisă și una mai deschisă) pentru layoutul de bază și o singură culoare accent pentru a atrage atenția asupra elementelor cheie.
@@ -398,39 +294,6 @@ Link prototip
    </td>
   </tr>
 </table>
-
-
-
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.png "image_tooltip")
-
-
-Figma design
-
-
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.png "image_tooltip")
-
-
-Componente
-
-
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image8.png "image_tooltip")
-
-
-Prototype tree
-
-Prototipul poate fi accesat la: [https://www.figma.com/proto/2QMr3KGKGJquNjA7OljI2M/Buzo?type=design&node-id=1-388&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A388](https://www.figma.com/proto/2QMr3KGKGJquNjA7OljI2M/Buzo?type=design&node-id=1-388&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A388)
 
 	După finalizarea designului am început dezvoltarea propriu-zisă. Folosind **SvelteKit **am dezvoltat UI-ul, iar cu **Supabase.js** am adaugat interacțiunea cu backendul.
 
@@ -515,23 +378,6 @@ Palele ventilatorului, carcasa senzorilor cât și cea a ferestrei sunt construi
 	Senzorii citesc datele și le actualizează într-un tabel **PostgreSQL **cu capacități real-time. De asemenea la câteva minute se crează o intrare nouă într-un tabel specializat pe istoricul de date.
 
 	Geamul și ventilatorul “ascultă”  la datele din tabelul real-time și în funcție de acestea decid când trebuie sa se deschidă.
-
-
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline drawings not supported directly from Docs. You may want to copy the inline drawing to a standalone drawing and export by reference. See <a href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google Drawings by reference</a> for details. The img URL below is a placeholder. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![drawing](https://docs.google.com/drawings/d/12345/export/png)
-
-Data-flow
-
-
-
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image9.png "image_tooltip")
-
 
 Tabelele PostgreSQL
 
